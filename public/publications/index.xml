@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Publications | Creator's Blog (Hugo Theme)</title><link>http://localhost:1313/publications/</link><atom:link href="http://localhost:1313/publications/index.xml" rel="self" type="application/rss+xml"/><description>Publications</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate><image><url>http://localhost:1313/media/icon_hu_a0dc1595079f9789.png</url><title>Publications</title><link>http://localhost:1313/publications/</link></image><item><title>Publication Title</title><link>http://localhost:1313/publications/publications/</link><pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate><guid>http://localhost:1313/publications/publications/</guid><description> &lt;h3>2025&lt;/h3>
+&lt;article>
+&lt;a href="https://doi.org/xxx">Paper Title One&lt;/a>
+&lt;p>&lt;u>Your Name&lt;/u>, Co-author A, Co-author B. &lt;em>Journal Name&lt;/em>, In review.&lt;/p>
+&lt;/article>
+&lt;article>
+&lt;a href="#">Another Paper Without DOI&lt;/a>
+&lt;p>&lt;u>Your Name&lt;/u>, Collaborator X. Submitted.&lt;/p>
+&lt;/article>
+&lt;!-- Another Year -->
+&lt;h3>2024&lt;/h3>
+&lt;article>
+&lt;a href="https://doi.org/yyy">Exciting Research Work&lt;/a>
+&lt;p>&lt;u>Your Name&lt;/u>, Researcher Y. &lt;em>Science Journal&lt;/em>, 2024.&lt;/p>
+&lt;/article></description></item></channel></rss>

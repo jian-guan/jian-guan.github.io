@@ -1,0 +1,7 @@
+@media (min-width: 768px) {
+  .md\:px-12 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
