@@ -62,5 +62,3 @@ features:
 params:
   custom_css:
     - css/override.css
-
-googleAnalytics: "G-35SSH5CTB5"
