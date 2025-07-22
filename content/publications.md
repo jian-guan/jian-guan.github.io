@@ -30,7 +30,7 @@ reading_time: false
 </article>
 
 <article style="margin-bottom: 1.5em;">
-  <a href="https://doi.org/10.5194/egusphere-2024-2948" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+  <a href="https://doi.org/10.5194/acp-25-7683-2025" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
     onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
     Two-years of stratospheric chemistry perturbations from the 2019/2020 Australian wildfire smoke
   </a>
