@@ -36,7 +36,7 @@ reading_time: false
   </a>
   <p style="margin: 0; color: #333;font-size: 1rem">
     Kane Stone, Susan Solomon, Pengfei Yu, Daniel M. Murphy, Douglas Kinnison, and <u><strong>Jian Guan</strong></u>. 
-    <em>Atmospheric Chemistry and Physics</em> (Accepted)
+    <em>Atmospheric Chemistry and Physics</em>, 25(14), 7683–7697
   </p>
 </article>
 <h3>2024</h3>
