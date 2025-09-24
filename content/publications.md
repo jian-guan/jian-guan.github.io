@@ -9,6 +9,16 @@ reading_time: false
   <article style="margin-bottom: 1.5em;">
     <a href="https://essopenarchive.org/doi/full/10.22541/essoar.174585008.87516680" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+      Human Influence on the Ozone Layer Detectable by the 1960s
+    </a>
+    <p style="margin: 0; color: #333;font-size: 1rem">
+      <u><strong>Jian Guan</strong></u>, Benjamin D. Santer, Peidong Wang, Qiang Fu, Rolando R. Garcia, Yaowei Li,     Kane Stone, Douglas Kinnison, Jun Zhang, Gabriel Chiodo, Jean-Francois Lamarque, and Susan Solomon.
+      <em>Proceedings of the National Academy of Sciences</em> (Under review)
+    </p>
+  </article>
+  <article style="margin-bottom: 1.5em;">
+    <a href="https://essopenarchive.org/doi/full/10.22541/essoar.174585008.87516680" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+      onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
       Using the Stratosphere to Understand Organic Aerosol Photolysis
     </a>
     <p style="margin: 0; color: #333;font-size: 1rem">
