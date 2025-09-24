@@ -7,7 +7,7 @@ reading_time: false
 <section style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 1.2rem; line-height: 1.5; color: #222; width: 90%; max-width: 1200px; margin: 2em auto;">
   <h3>2025</h3>
   <article style="margin-bottom: 1.5em;">
-    <a href="https://essopenarchive.org/doi/full/10.22541/essoar.174585008.87516680" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+    <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
       Human Influence on the Ozone Layer Detectable by the 1960s
     </a>
