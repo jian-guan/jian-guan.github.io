@@ -12,7 +12,7 @@ reading_time: false
       Human Influence on the Ozone Layer Detectable by the 1960s
     </a>
     <p style="margin: 0; color: #333;font-size: 1rem">
-      <u><strong>Jian Guan</strong></u>, Benjamin D. Santer, Peidong Wang, Qiang Fu, Rolando R. Garcia, Yaowei Li,     Kane Stone, Douglas Kinnison, Jun Zhang, Gabriel Chiodo, Jean-Francois Lamarque, and Susan Solomon.
+      <u><strong>Jian Guan</strong></u>, Benjamin D. Santer, Peidong Wang, Qiang Fu, Rolando R. Garcia, Yaowei Li, Kane Stone, Douglas Kinnison, Jun Zhang, Gabriel Chiodo, Jean-Francois Lamarque, and Susan Solomon.
       <em>Proceedings of the National Academy of Sciences</em> (Under review)
     </p>
   </article>
