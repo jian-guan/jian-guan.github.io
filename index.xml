@@ -201,7 +201,7 @@ console.log('code block');
 format for interactive data visualizations. With Plotly, you can design almost any kind of visualization you can imagine!&lt;/p&gt;
 &lt;p&gt;Save your Plotly JSON in your page folder, for example &lt;code&gt;line-chart.json&lt;/code&gt;, and then add the &lt;code&gt;{{&amp;lt; chart data=&amp;quot;line-chart&amp;quot; &amp;gt;}}&lt;/code&gt; shortcode where you would like the chart to appear.&lt;/p&gt;
 &lt;p&gt;Demo:&lt;/p&gt;
-&lt;div id="chart-536741928" class="chart"&gt;&lt;/div&gt;
+&lt;div id="chart-658719342" class="chart"&gt;&lt;/div&gt;
 &lt;script&gt;
 async function fetchChartJSON() {
 console.debug('Hugo Blox fetching chart JSON...')
@@ -217,7 +217,7 @@ return;
 clearInterval( a );
 fetchChartJSON().then(chart =&gt; {
 console.debug('Plotting chart...')
-window.Plotly.newPlot('chart-536741928', chart.data, chart.layout, {responsive: true});
+window.Plotly.newPlot('chart-658719342', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
@@ -504,38 +504,37 @@ Human Influence on the Ozone Layer Detectable by the 1960s
 &lt;em&gt;Proceedings of the National Academy of Sciences&lt;/em&gt; (Under review)
 &lt;/p&gt;
 &lt;/article&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;article style=&amp;quot;margin-bottom: 1.5em;&amp;quot;&amp;gt;
-&amp;lt;a href=&amp;quot;#&amp;quot; style=&amp;quot;font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;&amp;quot;
-onmouseover=&amp;quot;this.style.textDecoration='underline'&amp;quot; onmouseout=&amp;quot;this.style.textDecoration='none'&amp;quot;&amp;gt;
+&lt;article style="margin-bottom: 1.5em;"&gt;
+&lt;a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"&gt;
 Uncertain Natural Emissions Modulate the Response of Hydroxyl Radical (OH) to Idealized Surface Warming
-&amp;lt;/a&amp;gt;
-&amp;lt;p style=&amp;quot;margin: 0; color: #333; font-size: 1rem&amp;quot;&amp;gt;
-Qindan Zhu, Nicole Neumann, Arlene M. Fiore, Robert Pincus, &amp;lt;u&amp;gt;&amp;lt;strong&amp;gt;Jian Guan&amp;lt;/strong&amp;gt;&amp;lt;/u&amp;gt;, George Milly, Clare Singer, Brian Medeiros, and Paolo Giani.
-&amp;lt;em&amp;gt;Journal of Advances in Modeling Earth Systems&amp;lt;/em&amp;gt; (Under review)
-&amp;lt;/p&amp;gt;
-&amp;lt;/article&amp;gt;
-&amp;lt;article style=&amp;quot;margin-bottom: 1.5em;&amp;quot;&amp;gt;
-&amp;lt;a href=&amp;quot;https://essopenarchive.org/doi/full/10.22541/essoar.174585008.87516680&amp;quot; style=&amp;quot;font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;&amp;quot;
-onmouseover=&amp;quot;this.style.textDecoration='underline'&amp;quot; onmouseout=&amp;quot;this.style.textDecoration='none'&amp;quot;&amp;gt;
+&lt;/a&gt;
+&lt;p style="margin: 0; color: #333; font-size: 1rem"&gt;
+Qindan Zhu, Nicole Neumann, Arlene M. Fiore, Robert Pincus, &lt;u&gt;&lt;strong&gt;Jian Guan&lt;/strong&gt;&lt;/u&gt;, George Milly, Clare Singer, Brian Medeiros, and Paolo Giani.
+&lt;em&gt;Journal of Advances in Modeling Earth Systems&lt;/em&gt; (Under review)
+&lt;/p&gt;
+&lt;/article&gt;
+&lt;article style="margin-bottom: 1.5em;"&gt;
+&lt;a href="https://essopenarchive.org/doi/full/10.22541/essoar.174585008.87516680" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"&gt;
 Using the Stratosphere to Understand Organic Aerosol Photolysis
-&amp;lt;/a&amp;gt;
-&amp;lt;p style=&amp;quot;margin: 0; color: #333;font-size: 1rem&amp;quot;&amp;gt;
-&amp;lt;u&amp;gt;&amp;lt;strong&amp;gt;Jian Guan&amp;lt;/strong&amp;gt;&amp;lt;/u&amp;gt;, Susan Solomon, Daniel M. Murphy, Kane Stone, Pengfei Yu, Douglas Kinnison,
+&lt;/a&gt;
+&lt;p style="margin: 0; color: #333;font-size: 1rem"&gt;
+&lt;u&gt;&lt;strong&gt;Jian Guan&lt;/strong&gt;&lt;/u&gt;, Susan Solomon, Daniel M. Murphy, Kane Stone, Pengfei Yu, Douglas Kinnison,
 Gregory P. Schill, Simone Tilmes, and Michael J. Lawler.
-&amp;lt;em&amp;gt;Journal of Advances in Modeling Earth Systems&amp;lt;/em&amp;gt; (Accepted)
-&amp;lt;/p&amp;gt;
-&amp;lt;/article&amp;gt;
-&amp;lt;article style=&amp;quot;margin-bottom: 1.5em;&amp;quot;&amp;gt;
-&amp;lt;a href=&amp;quot;https://doi.org/10.5194/acp-25-7683-2025&amp;quot; style=&amp;quot;font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;&amp;quot;
-onmouseover=&amp;quot;this.style.textDecoration='underline'&amp;quot; onmouseout=&amp;quot;this.style.textDecoration='none'&amp;quot;&amp;gt;
+&lt;em&gt;Journal of Advances in Modeling Earth Systems&lt;/em&gt; (Accepted)
+&lt;/p&gt;
+&lt;/article&gt;
+&lt;article style="margin-bottom: 1.5em;"&gt;
+&lt;a href="https://doi.org/10.5194/acp-25-7683-2025" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"&gt;
 Two-years of stratospheric chemistry perturbations from the 2019/2020 Australian wildfire smoke
-&amp;lt;/a&amp;gt;
-&amp;lt;p style=&amp;quot;margin: 0; color: #333;font-size: 1rem&amp;quot;&amp;gt;
-Kane Stone, Susan Solomon, Pengfei Yu, Daniel M. Murphy, Douglas Kinnison, and &amp;lt;u&amp;gt;&amp;lt;strong&amp;gt;Jian Guan&amp;lt;/strong&amp;gt;&amp;lt;/u&amp;gt;.
-&amp;lt;em&amp;gt;Atmospheric Chemistry and Physics&amp;lt;/em&amp;gt;, 25(14), 7683–7697
-&amp;lt;/p&amp;gt;
-&amp;lt;/article&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;/a&gt;
+&lt;p style="margin: 0; color: #333;font-size: 1rem"&gt;
+Kane Stone, Susan Solomon, Pengfei Yu, Daniel M. Murphy, Douglas Kinnison, and &lt;u&gt;&lt;strong&gt;Jian Guan&lt;/strong&gt;&lt;/u&gt;.
+&lt;em&gt;Atmospheric Chemistry and Physics&lt;/em&gt;, 25(14), 7683–7697
+&lt;/p&gt;
+&lt;/article&gt;
 &lt;h3&gt;2024&lt;/h3&gt;
 &lt;article style="margin-bottom: 1.5em;"&gt;
 &lt;a href="https://doi.org/10.1029/2024GL108649" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
