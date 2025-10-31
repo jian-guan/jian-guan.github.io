@@ -17,7 +17,7 @@ reading_time: false
     </p>
   </article>
 
-    <article style="margin-bottom: 1.5em;">
+  <article style="margin-bottom: 1.5em;">
     <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
       Uncertain Natural Emissions Modulate the Response of Hydroxyl Radical (OH) to Idealized Surface Warming
