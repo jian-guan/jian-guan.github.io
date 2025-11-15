@@ -29,14 +29,14 @@ reading_time: false
   </article>
     
   <article style="margin-bottom: 1.5em;">
-    <a href="https://essopenarchive.org/doi/full/10.22541/essoar.174585008.87516680" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+    <a href="https://doi.org/10.1029/2025MS005084" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
       Using the Stratosphere to Understand Organic Aerosol Photolysis
     </a>
     <p style="margin: 0; color: #333;font-size: 1rem">
       <u><strong>Jian Guan</strong></u>, Susan Solomon, Daniel M. Murphy, Kane Stone, Pengfei Yu, Douglas Kinnison,
     Gregory P. Schill, Simone Tilmes, and Michael J. Lawler.
-      <em>Journal of Advances in Modeling Earth Systems</em> (Accepted)
+      <em>Journal of Advances in Modeling Earth Systems</em>, 17(11), e2025MS005084. 
     </p>
   </article>
   
