@@ -5,7 +5,7 @@ reading_time: false
 ---
 
 <section style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 1.2rem; line-height: 1.5; color: #222; width: 90%; max-width: 1200px; margin: 2em auto;">
-  <h3>2025</h3>
+  <h3>2026</h3>
     <article style="margin-bottom: 1.5em;">
       <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
         onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
@@ -13,7 +13,7 @@ reading_time: false
       </a>
       <p style="margin: 0; color: #333;font-size: 1rem">
         <u><strong>Jian Guan</strong></u>, Benjamin D. Santer, Peidong Wang, Qiang Fu, Rolando R. Garcia, Yaowei Li, Kane Stone, Douglas Kinnison, Jun Zhang, Gabriel Chiodo, Jean-Francois Lamarque, and Susan Solomon.
-        <em>Proceedings of the National Academy of Sciences</em> (Under review)
+        <em>Proceedings of the National Academy of Sciences</em> (In Revision)
       </p>
     </article>
   
@@ -24,10 +24,11 @@ reading_time: false
     </a>
     <p style="margin: 0; color: #333; font-size: 1rem">
       Qindan Zhu, Nicole Neumann, Arlene M. Fiore, Robert Pincus, <u><strong>Jian Guan</strong></u>, George Milly, Clare Singer, Brian Medeiros, and Paolo Giani. 
-      <em>Journal of Advances in Modeling Earth Systems</em> (Under review)
+      <em>Journal of Advances in Modeling Earth Systems</em> (In press)
     </p>
   </article>
-    
+  
+  <h3>2025</h3>  
   <article style="margin-bottom: 1.5em;">
     <a href="https://doi.org/10.1029/2025MS005084" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
