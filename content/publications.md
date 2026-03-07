@@ -13,7 +13,7 @@ reading_time: false
     </a>
     <p style="margin: 0; color: #333;font-size: 1rem">
       Qindan Zhu, Arlene M Fiore, Robert Pincus, Jian Guan, Clare E. Singer, Brian Medeiros, and Paolo Giani.
-      <em>Geophysical Research Letters</em> (Under Revision)
+      <em>Geophysical Research Letters</em> (Under Review)
     </p>
   </article>
   
