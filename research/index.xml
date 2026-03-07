@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Research | Jian Guan</title><link>https://jian-guan.github.io/research/</link><atom:link href="https://jian-guan.github.io/research/index.xml" rel="self" type="application/rss+xml"/><description>Research</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate><image><url>https://jian-guan.github.io/media/icon_hu_bb916552dc25efa1.png</url><title>Research</title><link>https://jian-guan.github.io/research/</link></image><item><title>🎉 Easily create your own simple yet highly customizable blog</title><link>https://jian-guan.github.io/research/get-started/</link><pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate><guid>https://jian-guan.github.io/research/get-started/</guid><description>&lt;p&gt;Welcome 👋&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Research | Jian Guan</title><link>https://jian-guan.github.io/research/</link><atom:link href="https://jian-guan.github.io/research/index.xml" rel="self" type="application/rss+xml"/><description>Research</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate><image><url>https://jian-guan.github.io/media/icon_hu_a3a984d4a1b03387.png</url><title>Research</title><link>https://jian-guan.github.io/research/</link></image><item><title>🎉 Easily create your own simple yet highly customizable blog</title><link>https://jian-guan.github.io/research/get-started/</link><pubDate>Fri, 27 Oct 2023 00:00:00 +0000</pubDate><guid>https://jian-guan.github.io/research/get-started/</guid><description>&lt;p&gt;Welcome 👋&lt;/p&gt;
 &lt;details class="print:hidden xl:hidden" open&gt;
 &lt;summary&gt;Table of Contents&lt;/summary&gt;
 &lt;div class="text-sm"&gt;
@@ -201,7 +201,7 @@ console.log('code block');
 format for interactive data visualizations. With Plotly, you can design almost any kind of visualization you can imagine!&lt;/p&gt;
 &lt;p&gt;Save your Plotly JSON in your page folder, for example &lt;code&gt;line-chart.json&lt;/code&gt;, and then add the &lt;code&gt;{{&amp;lt; chart data=&amp;quot;line-chart&amp;quot; &amp;gt;}}&lt;/code&gt; shortcode where you would like the chart to appear.&lt;/p&gt;
 &lt;p&gt;Demo:&lt;/p&gt;
-&lt;div id="chart-872914635" class="chart"&gt;&lt;/div&gt;
+&lt;div id="chart-378965241" class="chart"&gt;&lt;/div&gt;
 &lt;script&gt;
 async function fetchChartJSON() {
 console.debug('Hugo Blox fetching chart JSON...')
@@ -217,7 +217,7 @@ return;
 clearInterval( a );
 fetchChartJSON().then(chart =&gt; {
 console.debug('Plotting chart...')
-window.Plotly.newPlot('chart-872914635', chart.data, chart.layout, {responsive: true});
+window.Plotly.newPlot('chart-378965241', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
