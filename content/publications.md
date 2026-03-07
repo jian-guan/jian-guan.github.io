@@ -7,16 +7,27 @@ reading_time: false
 <section style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 1.2rem; line-height: 1.5; color: #222; width: 90%; max-width: 1200px; margin: 2em auto;">
   <h3>2026</h3>
     <article style="margin-bottom: 1.5em;">
-      <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
-        onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
-        Human Influence on the Ozone Layer Detectable by the 1960s
-      </a>
-      <p style="margin: 0; color: #333;font-size: 1rem">
-        <u><strong>Jian Guan</strong></u>, Benjamin D. Santer, Peidong Wang, Qiang Fu, Rolando R. Garcia, Yaowei Li, Kane Stone, Douglas Kinnison, Jun Zhang, Gabriel Chiodo, Jean-Francois Lamarque, and Susan Solomon.
-        <em>Proceedings of the National Academy of Sciences</em> (In Revision)
-      </p>
-    </article>
+    <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+      onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+      Weak OH Response to Idealized ENSO
+    </a>
+    <p style="margin: 0; color: #333;font-size: 1rem">
+      Qindan Zhu, Arlene M Fiore, Robert Pincus, Jian Guan, Clare E. Singer, Brian Medeiros, and Paolo Giani.
+      <em>Geophysical Research Letters</em> (Under Revision)
+    </p>
+  </article>
   
+  <article style="margin-bottom: 1.5em;">
+    <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
+      onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+      Human Influence on the Ozone Layer Detectable by the 1960s
+    </a>
+    <p style="margin: 0; color: #333;font-size: 1rem">
+      <u><strong>Jian Guan</strong></u>, Benjamin D. Santer, Peidong Wang, Qiang Fu, Rolando R. Garcia, Yaowei Li, Kane Stone, Douglas Kinnison, Jun Zhang, Gabriel Chiodo, Jean-Francois Lamarque, and Susan Solomon.
+      <em>Proceedings of the National Academy of Sciences</em> (In Revision)
+    </p>
+  </article>
+
   <article style="margin-bottom: 1.5em;">
     <a href="#" style="font-weight: 600; color: #1a73e8; text-decoration: none; display: inline-block; margin-bottom: 4px;"
       onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
