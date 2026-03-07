@@ -12,7 +12,7 @@ reading_time: false
       Weak OH Response to Idealized ENSO
     </a>
     <p style="margin: 0; color: #333;font-size: 1rem">
-      Qindan Zhu, Arlene M Fiore, Robert Pincus, Jian Guan, Clare E. Singer, Brian Medeiros, and Paolo Giani.
+      Qindan Zhu, Arlene M Fiore, Robert Pincus, <u><strong>Jian Guan</strong></u>, Clare E. Singer, Brian Medeiros, and Paolo Giani.
       <em>Geophysical Research Letters</em> (Under Review)
     </p>
   </article>
