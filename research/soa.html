@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOA Photolysis — Jian Guan</title>
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">Jian Guan</a>
+    <div class="nav__right">
+      <ul class="nav__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html" class="active">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <div class="research-detail">
+
+      <a href="../research.html" class="research-detail__back reveal">← Back to Research</a>
+
+      <div class="research-detail__tag reveal" style="color:var(--amber);background:var(--amber-lt);">Stratospheric aerosols</div>
+      <h1 class="research-detail__title reveal">Limited long-term photolysis of stratospheric organic aerosols</h1>
+
+      <img src="../img/soa.png" alt="SOA photolysis modeling results" class="research-detail__hero-img reveal">
+
+      <div class="research-detail__body reveal">
+        <p>
+          Organic aerosol (OA) is an important constituent of the Earth's atmosphere, yet whether
+          and how quickly it is destroyed by photolysis remains an active research question. The
+          stratosphere offers an ideal environment to study long-term OA photolysis: sources and
+          sinks are relatively simple and well-characterised, and there is no confounding effect
+          of rainout or complex tropospheric transport.
+        </p>
+        <p>
+          I use single-particle composition measurements from multiple NASA airborne campaigns
+          (CRAVE, MACPEX, ATom, SABRE) together with aerosol extinction profiles from the OMPS
+          Limb Profiler satellite to investigate OA evolution in the upper troposphere and lower
+          stratosphere (UTLS). I then simulate these observations with two complementary CESM
+          frameworks — CESM2-CARMA for the 2019/2020 Australian New Year wildfire case and
+          CESM2-MAM for background OA.
+        </p>
+        <p>
+          Both field observations and model comparisons consistently show that long-term OA
+          photolysis in the stratosphere is negligible. Fresh SOA photolyses rapidly, but the
+          rate diminishes to near-zero as the aerosol ages — a process known as photobleaching.
+          Based on these findings, I introduce an age-dependent photolysis scheme into CESM,
+          turning off photolysis after ~50 days of air age, which substantially improves the
+          model's representation of stratospheric OA abundance.
+        </p>
+      </div>
+
+      <div class="research-detail__tools reveal">
+        Tools &amp; methods: CESM2-CARMA · CESM2-MAM · OMPS Limb Profiler · NASA airborne campaigns · Age-dependent photolysis parameterisation
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">&copy; 2026 Jian Guan. All rights reserved.</div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

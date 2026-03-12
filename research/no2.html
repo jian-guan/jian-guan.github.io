@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NO₂ Photolysis — Jian Guan</title>
+  <link rel="icon" type="image/png" href="../icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="../icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__brand">Jian Guan</a>
+    <div class="nav__right">
+      <ul class="nav__links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../research.html" class="active">Research</a></li>
+        <li><a href="../publications.html">Publications</a></li>
+      </ul>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <div class="research-detail">
+
+      <a href="../research.html" class="research-detail__back reveal">← Back to Research</a>
+
+      <div class="research-detail__tag reveal" style="color:var(--indigo);background:var(--indigo-lt);">Reactive nitrogen</div>
+      <h1 class="research-detail__title reveal">Inferring stratospheric NO₂ photolysis rates from satellite observations</h1>
+
+      <img src="../img/no2.png" alt="NO₂ photolysis rate comparison" class="research-detail__hero-img reveal">
+
+      <div class="research-detail__body reveal">
+        <p>
+          Nitrogen dioxide (NO₂) plays a central role in stratospheric chemistry, particularly
+          in the catalytic destruction of ozone. Its photodissociation coefficient J(NO₂)
+          governs the daytime diurnal variation of NO<sub>x</sub> and depends on solar zenith
+          angle, altitude, and the local radiation environment — including surface albedo.
+          Yet direct global measurements of J(NO₂) in the stratosphere are scarce.
+        </p>
+        <p>
+          I develop a novel method to infer J(NO₂) globally from simultaneous satellite
+          measurements of NO, NO₂, O₃, and ClO from the Michelson Interferometer for Passive
+          Atmospheric Sounding (MIPAS) on ESA's Envisat. Because NO and NO₂ rapidly exchange
+          in sunlight, J(NO₂) can be derived under the steady-state assumption without direct
+          radiation measurements. I apply this to 50°S–90°S in December at 20–40 km, spanning
+          a wide range of solar zenith angles.
+        </p>
+        <p>
+          The derived J(NO₂) values are consistent with the TUV4.2 radiation model and show
+          the expected dependence on solar zenith angle and a weak altitude dependence. A key
+          finding is that J(NO₂) is elevated over the polar cap relative to lower latitudes —
+          driven by the high reflectivity of ice and snow. This albedo enhancement of
+          photolysis rates, which this satellite method captures quantitatively for the first
+          time, has implications for polar stratospheric and tropospheric photochemistry.
+        </p>
+      </div>
+
+      <div class="research-detail__tools reveal">
+        Tools &amp; methods: MIPAS / Envisat · TUV4.2 radiation model · Steady-state NO<sub>x</sub> chemistry · Solar zenith angle &amp; albedo dependence
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">&copy; 2026 Jian Guan. All rights reserved.</div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
