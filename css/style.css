@@ -342,6 +342,11 @@ a:hover { color: var(--teal-dk); }
   border-top: 1px solid var(--border);
   font-size: .92rem; color: var(--text-3); font-style: italic;
 }
+.research-detail__pub {
+  margin-top: 1.2rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  font-size: .92rem; color: var(--text-2);
+}
 
 .research-detail__back {
   display: inline-flex; align-items: center; gap: .3rem;
