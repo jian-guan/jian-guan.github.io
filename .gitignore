@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# CV source (private) and local build script
+cv/
+update-cv.sh
