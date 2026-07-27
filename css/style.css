@@ -146,7 +146,7 @@ a:hover { color: var(--teal-dk); }
 
 .page-desc {
   font-size: 1.1rem; color: var(--text-2);
-  max-width: 42rem; margin-bottom: 2.5rem; line-height: 1.75;
+  margin-bottom: 2.5rem; line-height: 1.75;
 }
 
 /* ── Home: single-screen layout ─────────────────────────────────── */
@@ -294,6 +294,10 @@ a:hover { color: var(--teal-dk); }
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.6rem;
 }
+.grid-credit {
+  margin-top: 1.6rem;
+  font-size: .8rem; color: var(--text-3); line-height: 1.5;
+}
 
 .rcard {
   display: flex; flex-direction: column;
@@ -318,19 +322,30 @@ a:hover { color: var(--teal-dk); }
   width: 100%; height: 180px;
   object-fit: cover; background: var(--bg-alt);
 }
+/* Show a full data figure (no crop) on a white mat, for plot thumbnails */
+.rcard__img--contain {
+  object-fit: contain; background: #ffffff; padding: .4rem;
+}
 
 .rcard__body { padding: 1.3rem 1.5rem 1.5rem; flex: 1; }
 
+.rcard__tags {
+  display: flex; flex-wrap: wrap; gap: .4rem;
+  align-items: center; margin-bottom: .7rem;
+}
 .rcard__tag {
   display: inline-block;
   font-size: .72rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
   padding: .2rem .65rem; border-radius: 999px;
+  border: 1px solid transparent;
   margin-bottom: .7rem;
 }
+.rcard__tags .rcard__tag { margin-bottom: 0; }
 .rcard__tag--teal    { color: var(--teal-dk);  background: var(--teal-lt); }
 .rcard__tag--amber   { color: var(--amber);    background: var(--amber-lt); }
 .rcard__tag--indigo  { color: var(--indigo);   background: var(--indigo-lt); }
+.rcard__tag--sub     { color: var(--text-3);   background: transparent; border-color: var(--border); }
 
 .rcard__title {
   font-size: 1.1rem; font-weight: 700; color: var(--navy);
@@ -347,6 +362,25 @@ a:hover { color: var(--teal-dk); }
   margin-top: .85rem;
 }
 .rcard:hover .rcard__arrow { text-decoration: underline; }
+.rcard a.rcard__arrow:hover { text-decoration: underline; }
+
+/* Card holding more than one link (main paper + related work) */
+.rcard__titlelink { color: inherit; text-decoration: none; }
+.rcard__titlelink:hover { text-decoration: underline; }
+
+.rcard__related {
+  margin-top: 1.1rem; padding-top: .9rem;
+  border-top: 1px solid var(--border);
+}
+.rcard__related-label {
+  display: block;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-3); margin-bottom: .3rem;
+}
+.rcard__related-link {
+  font-size: .9rem; font-weight: 500; line-height: 1.5;
+}
 
 /* ── Research detail page ───────────────────────────────────────── */
 .research-detail { max-width: 780px; margin: 0 auto; }
@@ -357,12 +391,21 @@ a:hover { color: var(--teal-dk); }
   box-shadow: var(--shadow-md); margin: 0 auto 2rem;
 }
 
+.research-detail__tags {
+  display: flex; flex-wrap: wrap; gap: .45rem;
+  align-items: center; margin-bottom: .8rem;
+}
 .research-detail__tag {
   display: inline-block;
   font-size: .75rem; font-weight: 700;
   letter-spacing: .08em; text-transform: uppercase;
   padding: .22rem .7rem; border-radius: 999px;
+  border: 1px solid transparent;
   margin-bottom: .8rem;
+}
+.research-detail__tags .research-detail__tag { margin-bottom: 0; }
+.research-detail__tag--sub {
+  color: var(--text-3); background: transparent; border-color: var(--border);
 }
 
 .research-detail__title {
