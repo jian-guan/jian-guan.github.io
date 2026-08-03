@@ -7,9 +7,28 @@
   <meta name="description" content="When did human influence on the ozone layer first become detectable? Detection and attribution with CESM-WACCM6 and CCMI-2022 ensembles (Guan et al., 2026, PNAS).">
   <link rel="icon" type="image/png" href="../icon.png">
   <link rel="apple-touch-icon" type="image/png" href="../icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/motion.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -26,23 +45,24 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="section">
+<section id="main" class="section">
   <div class="container">
     <div class="research-detail">
 
-      <a href="../research.html" class="research-detail__back reveal">← Back to Research</a>
+      <a href="../research.html" class="research-detail__back">← Back to Research</a>
 
-      <div class="research-detail__tags reveal">
+      <div class="research-detail__tags">
         <span class="research-detail__tag" style="color:var(--teal-dk);background:var(--teal-lt);">Detection &amp; Attribution</span>
         <span class="research-detail__tag research-detail__tag--sub">Ozone depletion</span>
       </div>
-      <h1 class="research-detail__title reveal">The emergence of human influence on the ozone layer by the 1960s</h1>
+      <h1 class="research-detail__title">The emergence of human influence on the ozone layer by the 1960s</h1>
 
-      <img src="../img/ozone.png" alt="Ozone anomaly time series" class="research-detail__hero-img reveal">
+      <img decoding="async" src="../img/ozone.png" width="1078" height="714" alt="Ozone anomaly time series" class="research-detail__hero-img figure-zoom" data-wipe="right">
 
-      <div class="research-detail__body reveal">
+      <div class="research-detail__body">
         <p>
           The Antarctic ozone hole was first reported in 1985, and small ozone losses at the global
           scale were also observed in the late 1980s. But when could the earliest human-caused ozone
@@ -67,18 +87,58 @@
         </p>
       </div>
 
-      <div class="research-detail__tools reveal">
+      <!-- Interactive schematic of the paper's central point: emergence is
+           governed by the noise as much as by the trend. -->
+      <div class="demo" id="emergence-demo">
+        <div class="demo__head">
+          <p class="demo__title">Try it — why the quietest place detects first</p>
+          <p class="demo__sub">
+            The depletion trend below never changes. Only the internal variability of the
+            background atmosphere does. Drag the slider and watch the detection date move.
+          </p>
+        </div>
+
+        <div class="demo__canvas-wrap">
+          <canvas id="emergence-canvas" width="660" height="290" role="img"
+                  aria-label="Schematic time series from 1950 to 2000. A fixed ozone depletion trend is plotted against several realizations of internal variability. The year at which the trend leaves the two-sigma noise band is marked, and it moves later as the variability increases."></canvas>
+        </div>
+
+        <div class="demo__controls">
+          <div class="demo__row">
+            <div class="demo__slider">
+              <label for="emergence-sigma">Internal variability</label>
+              <input type="range" id="emergence-sigma" min="20" max="300" value="120" step="1"
+                     aria-describedby="emergence-readout">
+            </div>
+            <p class="demo__readout" id="emergence-readout">
+              Detectable from <strong data-year>1980</strong> &nbsp;·&nbsp; σ&nbsp;=&nbsp;<span data-sigma>1.20</span>%
+            </p>
+          </div>
+          <div class="demo__row demo__row--presets">
+            <button class="demo__btn" type="button" data-preset="20">Quiet — tropical upper stratosphere</button>
+            <button class="demo__btn" type="button" data-preset="240">Noisy — midlatitude lower stratosphere</button>
+          </div>
+        </div>
+
+        <p class="demo__note">
+          Illustrative schematic, not model output. Detection is defined here as the trend
+          leaving a ±2σ band. The published analysis uses the CESM-WACCM6 large ensemble and
+          the CCMI-2022 archive — see Guan et al. (2026).
+        </p>
+      </div>
+
+      <div class="research-detail__tools">
         Tools &amp; methods: CESM-WACCM6 large ensemble · CCMI-2022 multi-model archive · Signal-to-noise analysis · Pattern-based fingerprinting · MLS ozone observations
       </div>
 
-      <div class="research-detail__pub reveal">
+      <div class="research-detail__pub">
         <strong>Publication:</strong>
         <a href="https://doi.org/10.1073/pnas.2608286123" target="_blank" rel="noopener">
           Guan et al. (2026), <em>PNAS</em>, 123(28), e2608286123
         </a>
       </div>
 
-      <div class="research-detail__pub reveal">
+      <div class="research-detail__pub">
         <strong>Media coverage:</strong>
         <a href="https://www.nature.com/articles/d41586-026-02033-2" target="_blank" rel="noopener"><em>Nature</em> Research Highlight</a>
         ·
@@ -98,5 +158,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="../js/motion.js"></script>
 </body>
 </html>

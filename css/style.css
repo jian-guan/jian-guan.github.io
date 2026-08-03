@@ -3,7 +3,8 @@
    Pure CSS — no frameworks, no build step
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+/* Inter is loaded via <link> in each page head (was an @import here, which
+   blocked the font request until this file had been fetched and parsed). */
 
 /* ── Light-mode tokens (default) ────────────────────────────────── */
 :root {

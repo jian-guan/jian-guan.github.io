@@ -16,9 +16,28 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" type="image/png" href="icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/motion.css">
 </head>
 <body class="home-page">
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -35,15 +54,16 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="hero hero--full">
+<section id="main" class="hero hero--full">
   <div class="container">
     <div class="hero__row">
 
       <div class="hero__text">
         <span class="hero__greeting">Hello, I'm</span>
-        <h1 class="hero__name">Jian Guan</h1>
+        <h1 class="hero__name"><span class="hero__name-inner">Jian Guan</span></h1>
         <p class="hero__tagline">
           <strong>Ph.D. Candidate</strong>
           <span style="color:var(--text-3)">·</span>
@@ -69,20 +89,20 @@
         </p>
 
         <div class="hero__icons">
-          <a href="mailto:jianguan@mit.edu" class="icon-btn" aria-label="Email" title="Email">
+          <a href="mailto:jianguan@mit.edu" class="icon-btn" data-label="Email" aria-label="Email" title="Email">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
           </a>
-          <a href="https://scholar.google.com/citations?user=-932pXIAAAAJ&hl=en" target="_blank" rel="noopener" class="icon-btn" aria-label="Google Scholar" title="Google Scholar">
+          <a href="https://scholar.google.com/citations?user=-932pXIAAAAJ&hl=en" target="_blank" rel="noopener" class="icon-btn" data-label="Google Scholar" aria-label="Google Scholar" title="Google Scholar">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269ZM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"/></svg>
           </a>
-          <a href="uploads/resume.pdf" target="_blank" rel="noopener" class="icon-btn icon-btn--cv" aria-label="CV" title="Download CV">
+          <a href="uploads/resume.pdf" target="_blank" rel="noopener" class="icon-btn icon-btn--cv" data-label="Curriculum Vitae" aria-label="CV" title="Download CV">
             <svg viewBox="0 0 512 512" fill="currentColor"><path d="M249.18 328.324c-9.788 15.384-19.179 30.434-40.222 45.055-11.256 7.89-37.164 23.306-73.99 23.306C64.709 396.685 8 345.605 8 255.801c0-78.486 53.345-140.486 128.466-140.486 30.434 0 57.474 10.521 77.387 26.304 18.414 14.65 27.038 29.304 34.563 42.456l-52.58 26.273c-3.762-8.626-8.29-17.649-19.913-27.406-12.784-10.155-25.54-13.152-36.46-13.152-42.821 0-65.364 39.825-65.364 84.145 0 58.238 29.7 87.143 65.364 87.143 34.563 0 48.48-24.042 57.474-39.426l52.243 26.673zm184.194-204.75H504l-92.037 265.22h-67.597l-90.904-265.22h70.625l54.843 188.6z"/></svg>
           </a>
         </div>
       </div>
 
       <div class="hero__photo">
-        <img src="img/avatar.jpg" alt="Jian Guan">
+        <img decoding="async" src="img/avatar.jpg" width="150" height="150" alt="Jian Guan">
       </div>
 
     </div>
@@ -104,5 +124,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

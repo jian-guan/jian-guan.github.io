@@ -7,9 +7,28 @@
   <meta name="description" content="Inferring stratospheric NO₂ photolysis rates from MIPAS/Envisat satellite observations, including albedo-driven enhancement over polar ice (Guan et al., 2023, ACP).">
   <link rel="icon" type="image/png" href="../icon.png">
   <link rel="apple-touch-icon" type="image/png" href="../icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/motion.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -26,20 +45,21 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="section">
+<section id="main" class="section">
   <div class="container">
     <div class="research-detail">
 
-      <a href="../research.html" class="research-detail__back reveal">← Back to Research</a>
+      <a href="../research.html" class="research-detail__back">← Back to Research</a>
 
-      <div class="research-detail__tag reveal" style="color:var(--indigo);background:var(--indigo-lt);">Reactive nitrogen</div>
-      <h1 class="research-detail__title reveal">Inferring stratospheric NO₂ photolysis rates from satellite observations</h1>
+      <div class="research-detail__tag" style="color:var(--indigo);background:var(--indigo-lt);">Reactive nitrogen</div>
+      <h1 class="research-detail__title">Inferring stratospheric NO₂ photolysis rates from satellite observations</h1>
 
-      <img src="../img/no2.png" alt="NO₂ photolysis rate comparison" class="research-detail__hero-img reveal">
+      <img decoding="async" src="../img/no2.png" width="2067" height="2707" alt="NO₂ photolysis rate comparison" class="research-detail__hero-img figure-zoom" data-wipe="down">
 
-      <div class="research-detail__body reveal">
+      <div class="research-detail__body">
         <p>
           Nitrogen dioxide (NO₂) plays a central role in stratospheric chemistry, particularly
           in the catalytic destruction of ozone. Its photodissociation coefficient J(NO₂)
@@ -65,11 +85,11 @@
         </p>
       </div>
 
-      <div class="research-detail__tools reveal">
+      <div class="research-detail__tools">
         Tools &amp; methods: MIPAS / Envisat · TUV4.2 radiation model · Steady-state NO<sub>x</sub> chemistry · Solar zenith angle &amp; albedo dependence
       </div>
 
-      <div class="research-detail__pub reveal">
+      <div class="research-detail__pub">
         <strong>Publication:</strong>
         <a href="https://doi.org/10.5194/acp-23-10413-2023" target="_blank" rel="noopener">
           Guan et al. (2023), <em>ACP</em>, 23(18), 10413–10422
@@ -85,5 +105,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="../js/motion.js"></script>
 </body>
 </html>

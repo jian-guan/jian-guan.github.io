@@ -16,9 +16,28 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" type="image/png" href="icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/motion.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -35,12 +54,13 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="section">
+<section id="main" class="section">
   <div class="container">
-    <h2 class="page-title reveal">Research</h2>
-    <p class="page-desc reveal">
+    <h1 class="page-title">Research</h1>
+    <p class="page-desc">
       My research asks how the composition of the stratosphere is changing, and how those
       changes feed back on climate — from detecting the earliest human fingerprints on the
       ozone layer, to tracking the fate of aerosols and photochemistry in the stratosphere,
@@ -49,41 +69,41 @@
       chemistry–climate models such as CESM.
     </p>
 
-    <div class="research-grid reveal-stagger">
+    <div class="research-grid">
 
-      <a href="research/ozone.html" class="rcard rcard--teal reveal">
-        <img src="img/ozone-card.jpg" alt="Illustration of Earth's ozone layer over Antarctica struck by solar radiation" class="rcard__img">
+      <a href="research/ozone.html" class="rcard rcard--teal">
+        <img decoding="async" src="img/ozone-card.jpg" width="1400" height="933" alt="Illustration of Earth's ozone layer over Antarctica struck by solar radiation" class="rcard__img">
         <div class="rcard__body">
           <div class="rcard__tags">
             <span class="rcard__tag rcard__tag--teal">Detection &amp; Attribution</span>
             <span class="rcard__tag rcard__tag--sub">Ozone depletion</span>
           </div>
-          <h3 class="rcard__title">Human influence on the ozone layer detectable by the 1960s</h3>
+          <h2 class="rcard__title">Human influence on the ozone layer detectable by the 1960s</h2>
           <p class="rcard__excerpt">
             A thought experiment using CESM-WACCM6 and CCMI-2022 ensembles to determine when
             ODS-induced ozone depletion first becomes statistically detectable.
           </p>
-          <span class="rcard__arrow">Read more →</span>
+          <span class="rcard__arrow">Read more</span>
         </div>
       </a>
 
-      <div class="rcard rcard--amber reveal">
+      <div class="rcard rcard--amber">
         <a href="research/soa.html" tabindex="-1" aria-hidden="true">
-          <img src="img/soa-card.jpg" alt="The layered atmosphere at Earth's horizon seen from the ISS at twilight, with a thin band of wildfire smoke in the stratosphere" class="rcard__img">
+          <img decoding="async" src="img/soa-card.jpg" width="1600" height="1066" alt="The layered atmosphere at Earth's horizon seen from the ISS at twilight, with a thin band of wildfire smoke in the stratosphere" class="rcard__img">
         </a>
         <div class="rcard__body">
           <div class="rcard__tags">
             <span class="rcard__tag rcard__tag--amber">Stratospheric aerosols</span>
             <span class="rcard__tag rcard__tag--sub">Model development</span>
           </div>
-          <h3 class="rcard__title">
+          <h2 class="rcard__title">
             <a href="research/soa.html" class="rcard__titlelink">Limited long-term photolysis of stratospheric organic aerosols</a>
-          </h3>
+          </h2>
           <p class="rcard__excerpt">
             Showing that aged organic aerosols in the stratosphere undergo negligible photolysis,
             and developing an age-dependent scheme to correct CESM model bias.
           </p>
-          <a href="research/soa.html" class="rcard__arrow">Read more →</a>
+          <a href="research/soa.html" class="rcard__arrow">Read more</a>
           <div class="rcard__related">
             <span class="rcard__related-label">Related — satellite-constrained photolysis</span>
             <a href="research/no2.html" class="rcard__related-link">Inferring stratospheric NO₂ photolysis rates from satellite observations →</a>
@@ -91,20 +111,20 @@
         </div>
       </div>
 
-      <a href="research/swv.html" class="rcard rcard--indigo reveal">
-        <img src="img/swv-card.jpg" alt="Illustration of Earth from space at sunrise with a thin veil of stratospheric water vapor high in the atmosphere" class="rcard__img">
+      <a href="research/swv.html" class="rcard rcard--indigo">
+        <img decoding="async" src="img/swv-card.jpg" width="1600" height="900" alt="Illustration of Earth from space at sunrise with a thin veil of stratospheric water vapor high in the atmosphere" class="rcard__img">
         <div class="rcard__body">
           <div class="rcard__tags">
             <span class="rcard__tag rcard__tag--indigo">Radiative forcing</span>
             <span class="rcard__tag rcard__tag--sub">Stratospheric water vapor</span>
           </div>
-          <h3 class="rcard__title">Satellite-constrained stratospheric water vapor radiative forcing from methane oxidation</h3>
+          <h2 class="rcard__title">Satellite-constrained stratospheric water vapor radiative forcing from methane oxidation</h2>
           <p class="rcard__excerpt">
             Combining a 35-year satellite methane record with 15 chemistry–climate models to
             constrain the indirect radiative forcing from methane-derived stratospheric water
             vapor — about 10% of methane's direct forcing.
           </p>
-          <span class="rcard__arrow">Read more →</span>
+          <span class="rcard__arrow">Read more</span>
         </div>
       </a>
 
@@ -119,5 +139,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

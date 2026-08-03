@@ -16,9 +16,28 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" type="image/png" href="icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/motion.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -35,14 +54,15 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="section">
+<section id="main" class="section">
   <div class="container">
-    <h2 class="page-title reveal">Publications</h2>
+    <h1 class="page-title">Publications</h1>
 
-    <div class="reveal">
-    <h3 class="pub-year">Manuscripts Submitted and Under Review</h3>
+    <div>
+    <h2 class="pub-year">Manuscripts Submitted and Under Review</h2>
 
     <article class="pub">
       <span class="pub__title">A 35-year Satellite-Constrained Estimate of Stratospheric Water Vapor Radiative Forcing from Methane Oxidation</span>
@@ -54,8 +74,8 @@
 
     </div>
 
-    <div class="reveal">
-    <h3 class="pub-year">2026</h3>
+    <div>
+    <h2 class="pub-year">2026</h2>
 
     <article class="pub">
       <span class="pub__title">Weak OH Response to Idealized ENSO</span>
@@ -89,8 +109,8 @@
     </article>
     </div>
 
-    <div class="reveal">
-    <h3 class="pub-year">2025</h3>
+    <div>
+    <h2 class="pub-year">2025</h2>
 
     <article class="pub">
       <a href="https://doi.org/10.1029/2025MS005084" class="pub__title" target="_blank" rel="noopener">
@@ -113,8 +133,8 @@
     </article>
     </div>
 
-    <div class="reveal">
-    <h3 class="pub-year">2024</h3>
+    <div>
+    <h2 class="pub-year">2024</h2>
 
     <article class="pub">
       <a href="https://doi.org/10.1029/2024GL108649" class="pub__title" target="_blank" rel="noopener">
@@ -127,8 +147,8 @@
     </article>
     </div>
 
-    <div class="reveal">
-    <h3 class="pub-year">2023</h3>
+    <div>
+    <h2 class="pub-year">2023</h2>
 
     <article class="pub">
       <a href="https://doi.org/10.5194/acp-23-10413-2023" class="pub__title" target="_blank" rel="noopener">
@@ -141,8 +161,8 @@
     </article>
     </div>
 
-    <div class="reveal">
-    <h3 class="pub-year">2022</h3>
+    <div>
+    <h2 class="pub-year">2022</h2>
 
     <article class="pub">
       <a href="https://doi.org/10.1016/j.apcatb.2022.121130" class="pub__title" target="_blank" rel="noopener">
@@ -155,8 +175,8 @@
     </article>
     </div>
 
-    <div class="reveal">
-    <h3 class="pub-year">2021</h3>
+    <div>
+    <h2 class="pub-year">2021</h2>
 
     <article class="pub">
       <a href="https://doi.org/10.1016/j.optmat.2021.111604" class="pub__title" target="_blank" rel="noopener">
@@ -187,5 +207,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>

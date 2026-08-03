@@ -7,9 +7,28 @@
   <meta name="description" content="A 35-year satellite-constrained estimate of the radiative forcing from stratospheric water vapor produced by methane oxidation — 0.062 W/m², about 10% of methane's direct forcing (Guan & Solomon, 2026, GRL, under review).">
   <link rel="icon" type="image/png" href="../icon.png">
   <link rel="apple-touch-icon" type="image/png" href="../icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/motion.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -26,23 +45,24 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="section">
+<section id="main" class="section">
   <div class="container">
     <div class="research-detail">
 
-      <a href="../research.html" class="research-detail__back reveal">← Back to Research</a>
+      <a href="../research.html" class="research-detail__back">← Back to Research</a>
 
-      <div class="research-detail__tags reveal">
+      <div class="research-detail__tags">
         <span class="research-detail__tag" style="color:var(--indigo);background:var(--indigo-lt);">Radiative forcing</span>
         <span class="research-detail__tag research-detail__tag--sub">Stratospheric water vapor</span>
       </div>
-      <h1 class="research-detail__title reveal">Satellite-constrained stratospheric water vapor radiative forcing from methane oxidation</h1>
+      <h1 class="research-detail__title">Satellite-constrained stratospheric water vapor radiative forcing from methane oxidation</h1>
 
-      <img src="../img/swv.png" alt="Stratosphere-adjusted radiative forcing from SWV-from-CH₄ for the three satellite observations, the CCMI models, and the AerChemMIP models" class="research-detail__hero-img reveal">
+      <img decoding="async" src="../img/swv.png" width="1039" height="819" alt="Stratosphere-adjusted radiative forcing from SWV-from-CH₄ for the three satellite observations, the CCMI models, and the AerChemMIP models" class="research-detail__hero-img figure-zoom" data-wipe="right">
 
-      <div class="research-detail__body reveal">
+      <div class="research-detail__body">
         <p>
           Methane (CH<sub>4</sub>) is the second-largest contributor to anthropogenic radiative
           forcing among well-mixed greenhouse gases. Beyond its direct effect, methane also
@@ -75,11 +95,11 @@
         </p>
       </div>
 
-      <div class="research-detail__tools reveal">
+      <div class="research-detail__tools">
         Tools &amp; methods: HALOE / MIPAS / ACE-FTS satellite CH<sub>4</sub> · CCMI-2022 &amp; AerChemMIP ensembles · Age-of-air SWV-from-CH<sub>4</sub> diagnostic · PORT radiative-transfer kernel · CMIP7 ScenarioMIP projections
       </div>
 
-      <div class="research-detail__pub reveal">
+      <div class="research-detail__pub">
         <strong>Publication:</strong>
         Guan &amp; Solomon (2026), <em>Geophysical Research Letters</em> — under review
       </div>
@@ -93,5 +113,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="../js/motion.js"></script>
 </body>
 </html>

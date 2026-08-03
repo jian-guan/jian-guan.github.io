@@ -7,9 +7,28 @@
   <meta name="description" content="Limited long-term photolysis of stratospheric organic aerosols and an age-dependent scheme to correct CESM model bias (Guan et al., 2025, JAMES).">
   <link rel="icon" type="image/png" href="../icon.png">
   <link rel="apple-touch-icon" type="image/png" href="../icon.png">
+  <script>
+    /* Set theme before first paint so dark mode never flashes, and mark that JS is live
+       so entrance animations only run when they can actually be driven. */
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+        if (t) d.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/motion.css">
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -26,23 +45,24 @@
       </button>
     </div>
   </div>
+  <div class="nav__progress" aria-hidden="true"><i></i></div>
 </nav>
 
-<section class="section">
+<section id="main" class="section">
   <div class="container">
     <div class="research-detail">
 
-      <a href="../research.html" class="research-detail__back reveal">← Back to Research</a>
+      <a href="../research.html" class="research-detail__back">← Back to Research</a>
 
-      <div class="research-detail__tags reveal">
+      <div class="research-detail__tags">
         <span class="research-detail__tag" style="color:var(--amber);background:var(--amber-lt);">Stratospheric aerosols</span>
         <span class="research-detail__tag research-detail__tag--sub">Model development</span>
       </div>
-      <h1 class="research-detail__title reveal">Limited long-term photolysis of stratospheric organic aerosols</h1>
+      <h1 class="research-detail__title">Limited long-term photolysis of stratospheric organic aerosols</h1>
 
-      <img src="../img/soa.png" alt="SOA photolysis modeling results" class="research-detail__hero-img reveal">
+      <img decoding="async" src="../img/soa.png" width="936" height="396" alt="SOA photolysis modeling results" class="research-detail__hero-img figure-zoom" data-wipe="up">
 
-      <div class="research-detail__body reveal">
+      <div class="research-detail__body">
         <p>
           Organic aerosol (OA) is an important constituent of the Earth's atmosphere, yet whether
           and how quickly it is destroyed by photolysis remains an active research question. The
@@ -68,11 +88,11 @@
         </p>
       </div>
 
-      <div class="research-detail__tools reveal">
+      <div class="research-detail__tools">
         Tools &amp; methods: CESM2-CARMA · CESM2-MAM · OMPS Limb Profiler · NASA airborne campaigns · Age-dependent photolysis parameterisation
       </div>
 
-      <div class="research-detail__pub reveal">
+      <div class="research-detail__pub">
         <strong>Publication:</strong>
         <a href="https://doi.org/10.1029/2025MS005084" target="_blank" rel="noopener">
           Guan et al. (2025), <em>JAMES</em>, 17(11), e2025MS005084
@@ -88,5 +108,6 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script src="../js/motion.js"></script>
 </body>
 </html>

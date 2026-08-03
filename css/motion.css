@@ -1,0 +1,623 @@
+/* ================================================================
+   JIAN GUAN — motion & interaction layer  (v2)
+
+   Loaded AFTER style.css. Everything here is additive: delete this
+   file plus js/motion.js and the site returns to its previous state.
+
+   Organising idea — "the column".
+   The site is about the vertical structure of the atmosphere, so
+   altitude is the design metaphor: content rises into place, the
+   accent gradient runs troposphere-warm -> stratosphere-teal ->
+   mesosphere-indigo, and scroll depth reads as a climb.
+   ================================================================ */
+
+:root {
+  /* One easing family, used everywhere. */
+  --ease-rise:  cubic-bezier(.22, 1, .36, 1);      /* entrances */
+  --ease-soft:  cubic-bezier(.65, 0, .35, 1);      /* state changes */
+  --t-fast:     .18s;
+  --t-mid:      .42s;
+  --t-slow:     .9s;
+
+  /* Altitude ramp: ground -> ozone layer -> mesosphere. */
+  --alt-low:    #d97706;
+  --alt-mid:    #1b9aaa;
+  --alt-high:   #6366f1;
+  --grad-alt:   linear-gradient(90deg, var(--alt-low) 0%, var(--alt-mid) 52%, var(--alt-high) 100%);
+}
+
+[data-theme="dark"] {
+  --alt-low:  #fbbf24;
+  --alt-mid:  #2dd4bf;
+  --alt-high: #a5b4fc;
+}
+
+/* ── Cross-document page transitions ────────────────────────────
+   Chrome/Safari only; other browsers simply navigate as before. */
+@view-transition { navigation: auto; }
+
+::view-transition-old(root) {
+  animation: vt-out .26s var(--ease-soft) both;
+}
+::view-transition-new(root) {
+  animation: vt-in .38s var(--ease-rise) both;
+}
+@keyframes vt-out { to   { opacity: 0; transform: translateY(-6px); } }
+@keyframes vt-in  { from { opacity: 0; transform: translateY(10px); } }
+
+/* The nav is shared furniture: hold it still across the transition. */
+.nav { view-transition-name: site-nav; }
+::view-transition-group(site-nav) { animation-duration: .3s; }
+
+/* ── Skip link ──────────────────────────────────────────────────── */
+.skip-link {
+  position: fixed; top: .5rem; left: .5rem; z-index: 300;
+  padding: .55rem 1rem; border-radius: 8px;
+  background: var(--card-bg); color: var(--text);
+  border: 1.5px solid var(--teal);
+  font-size: .9rem; font-weight: 600;
+  transform: translateY(-160%);
+  transition: transform var(--t-mid) var(--ease-rise);
+}
+.skip-link:focus-visible { transform: translateY(0); outline: none; }
+
+/* ── Nav: scroll state + progress hairline ──────────────────────── */
+.nav {
+  position: sticky;
+  transition: background var(--t-mid) var(--ease-soft),
+              border-color var(--t-mid) var(--ease-soft),
+              box-shadow var(--t-mid) var(--ease-soft);
+}
+.nav.is-scrolled {
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--border) 70%, transparent),
+              0 6px 24px -18px rgba(15, 36, 65, .5);
+}
+[data-theme="dark"] .nav.is-scrolled {
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--border) 70%, transparent),
+              0 6px 24px -14px rgba(0, 0, 0, .7);
+}
+
+.nav__progress {
+  position: absolute; left: 0; right: 0; bottom: -1px;
+  height: 2px; overflow: hidden; pointer-events: none;
+}
+.nav__progress i {
+  display: block; height: 100%;
+  background: var(--grad-alt);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: 0 50%;
+  opacity: 0;
+  transition: opacity var(--t-mid) var(--ease-soft);
+}
+.nav.is-scrolled .nav__progress i { opacity: 1; }
+
+/* Nav links get an underline that grows from the centre. */
+.nav__links a { position: relative; }
+.nav__links a::after {
+  content: ''; position: absolute;
+  left: 1rem; right: 1rem; bottom: .18rem; height: 2px;
+  border-radius: 2px; background: var(--teal);
+  transform: scaleX(0); transform-origin: 50% 50%;
+  transition: transform var(--t-mid) var(--ease-rise);
+}
+.nav__links a:hover::after { transform: scaleX(1); }
+.nav__links a.active::after { transform: scaleX(1); background: var(--grad-alt); }
+
+/* Theme toggle: the icon rotates through rather than snapping. */
+.theme-toggle { overflow: hidden; }
+.theme-toggle svg { transition: transform var(--t-mid) var(--ease-rise), opacity var(--t-fast); }
+.theme-toggle:hover svg { transform: rotate(-18deg); }
+.theme-toggle:active { transform: scale(.92); }
+
+/* ================================================================
+   HOME — staged entrance
+   Elements rise in reading order. Gated on .js so no-JS visitors
+   (and crawlers) get the finished layout with nothing hidden.
+   ================================================================ */
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rise-mask {
+  from { transform: translate3d(0, 105%, 0); }
+  to   { transform: none; }
+}
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.js .hero__text > *,
+.js .hero__news {
+  animation: rise .85s var(--ease-rise) both;
+}
+.js .hero__greeting { animation-delay: .06s; }
+.js .hero__name     { animation: fade .3s linear both; animation-delay: .1s; }
+.js .hero__tagline  { animation-delay: .34s; }
+.js .hero__bio:nth-of-type(1) { animation-delay: .42s; }
+.js .hero__bio:nth-of-type(2) { animation-delay: .50s; }
+.js .hero__icons    { animation-delay: .60s; }
+.js .hero__news     { animation-delay: .72s; }
+
+/* The name is masked so it climbs into view instead of just fading. */
+.hero__name { overflow: hidden; padding-bottom: .08em; margin-bottom: .52em; }
+.hero__name .hero__name-inner {
+  display: inline-block;
+  background: linear-gradient(100deg, var(--navy) 0%, var(--blue) 65%, var(--teal) 105%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.js .hero__name .hero__name-inner {
+  animation: rise-mask 1.05s var(--ease-rise) both;
+  animation-delay: .14s;
+}
+
+/* The rule before "HELLO, I'M" draws itself. */
+.hero__greeting::before { transition: width var(--t-slow) var(--ease-rise); }
+.js .hero__greeting::before { width: 0; }
+.js .is-entered .hero__greeting::before { width: 2rem; }
+
+/* The decorative blob in the base sheet sits 120px past the right edge and
+   was adding a horizontal scrollbar. Clip the hero on x only, so the limb
+   arcs can still breathe vertically. */
+.hero--full { overflow-x: clip; overflow-y: visible; }
+
+/* ── Icon buttons: magnetic pull + label ────────────────────────── */
+.hero__icons { position: relative; }
+.icon-btn {
+  position: relative;
+  transform: translate3d(var(--mx, 0), var(--my, 0), 0);
+  transition: color var(--t-fast), border-color var(--t-fast),
+              background var(--t-fast), transform .28s var(--ease-rise);
+}
+.icon-btn:hover { transform: translate3d(var(--mx, 0), calc(var(--my, 0px) - 2px), 0); }
+.icon-btn:active { transform: scale(.9); transition-duration: .08s; }
+.icon-btn svg { transition: transform var(--t-mid) var(--ease-rise); }
+.icon-btn:hover svg { transform: scale(1.08); }
+
+.icon-btn::after {
+  content: attr(data-label);
+  position: absolute; top: calc(100% + .5rem); left: 50%;
+  transform: translate(-50%, 4px);
+  padding: .18rem .5rem; border-radius: 6px;
+  background: var(--text); color: var(--bg);
+  font-size: .68rem; font-weight: 600; letter-spacing: .03em;
+  white-space: nowrap; pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-fast) var(--ease-soft),
+              transform var(--t-fast) var(--ease-rise);
+}
+.icon-btn:hover::after,
+.icon-btn:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+
+/* ── News: hairline draws in, item nudges on hover ──────────────── */
+.hero__news { position: relative; }
+.hero__news::before {
+  content: ''; position: absolute; top: -1px; left: 0; height: 1px;
+  width: 100%; background: var(--grad-alt); opacity: .55;
+  transform: scaleX(0); transform-origin: 0 50%;
+}
+.js .is-entered .hero__news::before {
+  transform: scaleX(1);
+  transition: transform 1.1s var(--ease-rise) .85s;
+}
+.hero__news li {
+  padding-left: .1rem;
+  transition: transform var(--t-mid) var(--ease-rise);
+}
+.hero__news li:hover { transform: translateX(3px); }
+.hero__news .news-date { transition: color var(--t-mid); }
+.hero__news li:hover .news-date { color: var(--teal); }
+
+/* ================================================================
+   RESEARCH CARDS
+   ================================================================ */
+.rcard {
+  position: relative;
+  transition: transform .5s var(--ease-rise),
+              box-shadow .5s var(--ease-rise),
+              border-color .5s var(--ease-rise);
+}
+.rcard:hover,
+.rcard:focus-within {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: var(--shadow-lg);
+}
+
+/* A brighter band wipes across the card's existing colour bar. */
+.rcard::before {
+  content: ''; position: absolute; top: -4px; left: 0;
+  height: 4px; width: 100%;
+  background: var(--grad-alt);
+  transform: scaleX(0); transform-origin: 0 50%;
+  transition: transform .65s var(--ease-rise);
+  z-index: 2;
+}
+.rcard:hover::before,
+.rcard:focus-within::before { transform: scaleX(1); }
+
+.rcard__title { transition: color var(--t-mid) var(--ease-soft); }
+.rcard:hover .rcard__title,
+.rcard:focus-within .rcard__title { color: var(--teal-dk); }
+[data-theme="dark"] .rcard:hover .rcard__title,
+[data-theme="dark"] .rcard:focus-within .rcard__title { color: var(--teal); }
+
+/* The arrow travels; the label itself does not shift. */
+.rcard__arrow::after {
+  content: '→'; display: inline-block; margin-left: .15rem;
+  transition: transform var(--t-mid) var(--ease-rise);
+}
+.rcard:hover .rcard__arrow::after,
+.rcard:focus-within .rcard__arrow::after { transform: translateX(5px); }
+
+.rcard__tag { transition: transform var(--t-mid) var(--ease-rise); }
+.rcard:hover .rcard__tag { transform: translateY(-1px); }
+
+.rcard__related-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: .18em;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color var(--t-mid) var(--ease-soft);
+}
+.rcard__related-link:hover { text-decoration-color: currentColor; }
+
+/* ================================================================
+   ARTICLE PAGES
+   ================================================================ */
+.research-detail__back {
+  transition: transform var(--t-mid) var(--ease-rise);
+}
+.research-detail__back:hover { transform: translateX(-4px); }
+
+/* The intrinsic width/height attributes added for layout stability are also
+   presentational hints, so without this the figure renders at its raw pixel
+   height (714px) instead of its aspect ratio (410px). */
+.research-detail__hero-img { height: auto; }
+
+/* The article figures are transparent PNGs with black axis text, so in dark mode
+   they need a white mat. No padding — that would shrink the image itself. */
+[data-theme="dark"] .research-detail__hero-img,
+[data-theme="dark"] .lightbox img { background: #fff; }
+
+/* Figures become zoomable. The wrapper and badge are injected by motion.js. */
+.figure-zoom-wrap {
+  position: relative;
+  display: block; width: 85%; max-width: 620px;
+  margin: 0 auto 2rem;
+}
+.figure-zoom-wrap .figure-zoom { width: 100%; height: auto; margin: 0; }
+.figure-zoom {
+  cursor: zoom-in;
+  transition: transform .6s var(--ease-rise), box-shadow .6s var(--ease-rise);
+}
+.figure-zoom:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.figure-zoom:focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
+
+.figure-zoom-badge {
+  position: absolute; right: .6rem; bottom: .6rem;
+  display: inline-flex; align-items: center; gap: .3rem;
+  padding: .22rem .6rem; border-radius: 999px;
+  background: color-mix(in srgb, var(--card-bg) 88%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-3);
+  pointer-events: none;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity var(--t-mid) var(--ease-soft), transform var(--t-mid) var(--ease-rise);
+}
+.figure-zoom-badge::before { content: '⤢'; font-size: .8rem; letter-spacing: 0; }
+.figure-zoom-wrap:hover .figure-zoom-badge,
+.figure-zoom-wrap:focus-within .figure-zoom-badge { opacity: 1; transform: none; }
+/* Touch devices get no hover, so keep it quietly visible there. */
+@media (hover: none) {
+  .figure-zoom-badge { opacity: 1; transform: none; }
+}
+
+/* ── Figures draw themselves as you scroll ──────────────────────
+   Each figure is revealed along its own reading axis — time for the
+   ozone series, altitude for the SOA profiles, panel order for NO2 —
+   so the wipe reads as the figure being plotted rather than as a
+   generic fade. Driven by --wipe (0..1) from motion.js; the
+   [data-wipe] attribute is removed entirely under reduced motion,
+   which takes the mask with it. */
+.figure-zoom-wrap[data-wipe] { --wipe: 0; }
+
+.figure-zoom-wrap[data-wipe] .figure-zoom {
+  -webkit-mask-image: var(--wipe-mask);
+          mask-image: var(--wipe-mask);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+}
+
+.figure-zoom-wrap[data-wipe="right"] {
+  --wipe-mask: linear-gradient(90deg, #000 calc(var(--wipe) * 114% - 14%), transparent calc(var(--wipe) * 114%));
+}
+.figure-zoom-wrap[data-wipe="up"] {
+  --wipe-mask: linear-gradient(0deg, #000 calc(var(--wipe) * 118% - 18%), transparent calc(var(--wipe) * 118%));
+}
+.figure-zoom-wrap[data-wipe="down"] {
+  --wipe-mask: linear-gradient(180deg, #000 calc(var(--wipe) * 110% - 10%), transparent calc(var(--wipe) * 110%));
+}
+
+/* ── Ozone article: "emergence from noise" demo ─────────────────── */
+.demo {
+  margin: 2rem 0 1.6rem;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+.demo__head {
+  padding: 1rem 1.25rem .8rem;
+  border-bottom: 1px solid var(--border);
+}
+.demo__title {
+  font-size: .74rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: .3rem;
+}
+.demo__sub { font-size: .9rem; color: var(--text-2); line-height: 1.6; }
+.demo__canvas-wrap { position: relative; padding: .9rem 1.1rem .4rem; }
+.demo canvas { display: block; width: 100%; height: auto; }
+.demo__controls {
+  display: flex; flex-direction: column; gap: .85rem;
+  padding: .5rem 1.25rem 1.1rem;
+}
+.demo__row { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; }
+.demo__row--presets { gap: .6rem; }
+.demo__btn {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .45rem .95rem; border-radius: 999px;
+  border: 1.5px solid var(--teal); background: transparent;
+  color: var(--teal); font: inherit; font-size: .85rem; font-weight: 600;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast), transform .1s;
+}
+.demo__btn:hover { background: var(--teal-lt); }
+.demo__btn:active { transform: scale(.96); }
+.demo__slider {
+  display: flex; align-items: center; gap: .7rem;
+  flex: 1 1 240px; min-width: 0;
+}
+.demo__slider label {
+  font-size: .74rem; font-weight: 700; color: var(--text-3);
+  letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+}
+.demo__slider input[type="range"] {
+  flex: 1 1 auto; min-width: 0; width: 100%;
+  accent-color: var(--teal); cursor: ew-resize;
+}
+.demo__readout {
+  flex: 0 0 auto;
+  font-size: .85rem; color: var(--text-2);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.demo__readout strong { color: var(--teal); font-weight: 700; }
+.demo__note {
+  padding: 0 1.25rem 1.1rem;
+  font-size: .78rem; color: var(--text-3); line-height: 1.55;
+}
+
+/* ================================================================
+   EASTER EGG — "the ascent"
+
+   Type  o z o n e  anywhere (or tap the footer line 5x) and the
+   window becomes a camera climbing out of the atmosphere: up past
+   the tropopause, through the ozone layer as it ignites, into the
+   mesosphere, until the curve of the planet rises into frame.
+
+   The column is built once at true proportions — the camera is 340%
+   of the viewport and spans 0-100 km, so 1 km == 1% of it — and a
+   single transform flies up it. The altitude scale on the right is
+   what makes the motion legible; a translating gradient on its own
+   reads as a fade, not as a climb.
+
+   Nothing is ever blocked: pointer-events stay off throughout and
+   any key or click ends it early.
+   ================================================================ */
+.limbview {
+  position: fixed; inset: 0; z-index: 350;
+  pointer-events: none; overflow: hidden;
+  opacity: 0;
+  transition: opacity .8s var(--ease-soft);
+}
+.limbview.is-on { opacity: 1; }
+.limbview.is-off { opacity: 0; }
+
+.limbview__scene { position: absolute; inset: 0; overflow: hidden; }
+
+.limbview__camera {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 340%;
+  transform: translateY(0);
+}
+.limbview.is-on .limbview__camera {
+  animation: lv-climb 4.5s cubic-bezier(.42, 0, .3, 1) .65s both;
+}
+/* translateY here is a share of the camera's own height: 58% of 340%
+   lands the viewport on 58-87 km, high in the mesosphere. */
+@keyframes lv-climb {
+  from { transform: translateY(0); }
+  to   { transform: translateY(58%); }
+}
+
+/* Ground haze -> tropopause -> stratosphere -> deep sky. Kept saturated
+   rather than black: a near-black veil over a light page just reads grey. */
+.limbview__strip {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top,
+    rgba(255, 176, 96, .40)   0%,
+    rgba(240, 148, 96, .34)   7%,
+    rgba(178, 166, 214, .26) 13%,
+    rgba(64, 168, 198, .28)  24%,
+    rgba(40, 126, 190, .30)  40%,
+    rgba(38, 84, 170, .32)   58%,
+    rgba(42, 48, 142, .34)   78%,
+    rgba(40, 28, 112, .34)  100%);
+}
+[data-theme="dark"] .limbview__strip {
+  background: linear-gradient(to top,
+    rgba(255, 168, 88, .34)   0%,
+    rgba(226, 128, 82, .32)   7%,
+    rgba(132, 128, 186, .30) 13%,
+    rgba(44, 150, 184, .32)  24%,
+    rgba(26, 100, 168, .38)  40%,
+    rgba(18, 56, 132, .44)   58%,
+    rgba(12, 22, 78, .50)    78%,
+    rgba(4, 6, 30, .56)     100%);
+}
+
+/* The ozone layer, 15-35 km, lit as the camera passes through it. */
+.limbview__ozone {
+  position: absolute; left: 0; right: 0;
+  bottom: 15%; height: 20%;
+  background: linear-gradient(to top,
+    transparent,
+    color-mix(in srgb, var(--alt-mid) 30%, transparent) 50%,
+    transparent);
+  opacity: 0;
+}
+.limbview.is-on .limbview__ozone {
+  animation: lv-ignite 1.3s var(--ease-soft) 1.0s both;
+}
+@keyframes lv-ignite { from { opacity: 0; } to { opacity: 1; } }
+
+/* Real boundaries: tropopause at 12 km, stratopause at 50 km. */
+.limbview__rule {
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg,
+    transparent, color-mix(in srgb, currentColor 55%, transparent) 18%,
+    color-mix(in srgb, currentColor 55%, transparent) 82%, transparent);
+}
+.limbview__rule--tropopause  { bottom: 12%; color: var(--alt-low); }
+.limbview__rule--stratopause { bottom: 50%; color: var(--alt-high); }
+
+/* Region names, parked in the middle of each region. */
+.limbview__band {
+  position: absolute; left: clamp(1.25rem, 6vw, 5rem);
+  padding: .16rem .55rem; border-radius: 5px;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; white-space: nowrap;
+}
+.limbview__band--tropo { bottom: 5%;  color: var(--alt-low); }
+.limbview__band--strat { bottom: 30%; color: var(--alt-mid); }
+.limbview__band--meso  { bottom: 66%; color: var(--alt-high); }
+
+/* The altitude scale you fly past — this is the motion cue. */
+.limbview__tick {
+  position: absolute; right: clamp(1.25rem, 6vw, 5rem);
+  display: flex; align-items: center; gap: .45rem;
+  color: var(--text-2);
+}
+.limbview__tick i {
+  width: 20px; height: 1px; background: currentColor; opacity: .45;
+}
+.limbview__tick b {
+  font-size: .6rem; font-weight: 600; letter-spacing: .06em;
+  opacity: .65; font-variant-numeric: tabular-nums;
+  padding: .05rem .3rem; border-radius: 4px;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+}
+
+/* High enough, and the planet curves away below you. */
+.limbview__horizon {
+  position: absolute; left: 50%; top: 84%;
+  width: 240vw; height: 240vw; margin-left: -120vw;
+  border-radius: 50%;
+  border-top: 2px solid color-mix(in srgb, var(--alt-low) 78%, transparent);
+  /* The planet body below the limb. The circle is enormous, so the fill has
+     to run downward from its top edge — 8% of it is already a screenful. */
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--alt-low) 24%, transparent) 0%,
+    color-mix(in srgb, var(--text) 74%, transparent) 1.4%,
+    color-mix(in srgb, var(--text) 90%, transparent) 8%);
+  transform: translateY(30vh);
+  opacity: 0;
+}
+[data-theme="dark"] .limbview__horizon {
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--alt-low) 28%, transparent) 0%,
+    rgba(3, 6, 20, .90) 1.4%,
+    rgba(1, 2, 10, .97) 8%);
+}
+.limbview.is-on .limbview__horizon {
+  animation: lv-horizon 2.2s var(--ease-rise) 3.9s both;
+}
+@keyframes lv-horizon {
+  from { transform: translateY(30vh); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.limbview__caption {
+  position: absolute; left: 50%; bottom: 1.6rem;
+  max-width: min(30rem, calc(100vw - 2.5rem));
+  padding: .5rem 1rem; border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  font-size: .74rem; line-height: 1.5; letter-spacing: .02em;
+  color: var(--text-2); text-align: center;
+  transform: translateX(-50%) translateY(8px);
+  opacity: 0;
+}
+.limbview.is-on .limbview__caption {
+  animation: lv-caption .8s var(--ease-rise) 5.2s both;
+}
+@keyframes lv-caption {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Reduced motion: no flight. Park the camera in the ozone layer with
+   everything already in place, and hold. */
+.limbview.is-static .limbview__camera { transform: translateY(14%); animation: none; }
+.limbview.is-static .limbview__ozone,
+.limbview.is-static .limbview__horizon,
+.limbview.is-static .limbview__caption { opacity: 1; animation: none; }
+.limbview.is-static .limbview__horizon { transform: translateY(0); }
+.limbview.is-static .limbview__caption { transform: translateX(-50%); }
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+@media (max-width: 768px) {
+  .icon-btn::after { display: none; }
+  .demo__controls { gap: .7rem; }
+  .demo__slider { min-width: 100%; }
+}
+
+/* ================================================================
+   Reduced motion — everything above collapses to instant state.
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .hero__text > *,
+  .js .hero__news,
+  .js .hero__photo img,
+  .js .hero__name .hero__name-inner { animation: none; opacity: 1; transform: none; }
+  .js .hero__greeting::before { width: 2rem; }
+  .js .is-entered .hero__news::before,
+  .hero__news::before { transform: scaleX(1); }
+  .rcard:hover, .rcard:focus-within { transform: none; }
+  .limbview__sky, .limbview__horizon { transform: none; }
+}
