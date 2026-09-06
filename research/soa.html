@@ -38,6 +38,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../research.html" class="active">Research</a></li>
         <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../uploads/resume.pdf" target="_blank" rel="noopener">CV</a></li>
       </ul>
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
@@ -60,36 +61,13 @@
       </div>
       <h1 class="research-detail__title">Limited long-term photolysis of stratospheric organic aerosols</h1>
 
-      <img decoding="async" src="../img/soa.png" width="936" height="396" alt="SOA photolysis modeling results" class="research-detail__hero-img figure-zoom" data-wipe="up">
-
-      <div class="research-detail__body">
+      <div class="research-detail__summary">
         <p>
-          Organic aerosol (OA) is an important constituent of the Earth's atmosphere, yet whether
-          and how quickly it is destroyed by photolysis remains an active research question. The
-          stratosphere offers an ideal environment to study long-term OA photolysis: sources and
-          sinks are relatively simple and well-characterised, and there is no confounding effect
-          of rainout or complex tropospheric transport.
+          How long does sunlight continue to destroy organic aerosols in the stratosphere?
+          Aircraft and satellite observations indicate that photolysis becomes negligible
+          as aerosols age. I use these constraints to develop an age-dependent photolysis
+          scheme that improves CESM's representation of stratospheric organic aerosol abundance.
         </p>
-        <p>
-          I use single-particle composition measurements from multiple NASA airborne campaigns
-          (CRAVE, MACPEX, ATom, SABRE) together with aerosol extinction profiles from the OMPS
-          Limb Profiler satellite to investigate OA evolution in the upper troposphere and lower
-          stratosphere (UTLS). I then simulate these observations with two complementary CESM
-          frameworks — CESM2-CARMA for the 2019/2020 Australian New Year wildfire case and
-          CESM2-MAM for background OA.
-        </p>
-        <p>
-          Both field observations and model comparisons consistently show that long-term OA
-          photolysis in the stratosphere is negligible. Fresh SOA photolyses rapidly, but the
-          rate diminishes to near-zero as the aerosol ages — a process known as photobleaching.
-          Based on these findings, I introduce an age-dependent photolysis scheme into CESM,
-          turning off photolysis after ~50 days of air age, which substantially improves the
-          model's representation of stratospheric OA abundance.
-        </p>
-      </div>
-
-      <div class="research-detail__tools">
-        Tools &amp; methods: CESM2-CARMA · CESM2-MAM · OMPS Limb Profiler · NASA airborne campaigns · Age-dependent photolysis parameterisation
       </div>
 
       <div class="research-detail__pub">
@@ -97,6 +75,35 @@
         <a href="https://doi.org/10.1029/2025MS005084" target="_blank" rel="noopener">
           Guan et al. (2025), <em>JAMES</em>, 17(11), e2025MS005084
         </a>
+      </div>
+
+      <figure class="research-figure">
+        <a href="../img/soa.png" class="research-figure__link" data-figure-open
+           data-figure-alt="Organic aerosol fraction versus altitude from CRAVE and MACPEX aircraft observations and CESM photolysis schemes" aria-label="Enlarge research figure">
+          <img decoding="async" src="../img/soa.png" width="936" height="396" alt="Organic aerosol fraction versus altitude from CRAVE and MACPEX aircraft observations and CESM photolysis schemes" class="research-detail__hero-img figure-zoom" data-wipe="up">
+        </a>
+        <figcaption>
+          Organic aerosol mass fractions from aircraft observations are compared with CESM
+          photolysis schemes in two latitude bands. The age-dependent scheme (blue dashed)
+          better reproduces the observed vertical profiles than the original scheme (purple).
+        </figcaption>
+      </figure>
+
+      <div class="research-detail__body">
+        <h2>Methods and contribution</h2>
+        <p>
+          I compare aircraft aerosol composition measurements and OMPS satellite extinction
+          profiles with CESM simulations of background aerosols and Australian wildfire smoke.
+          The observations provide complementary tests of how long organic aerosol persists
+          in the stratosphere.
+        </p>
+        <p>
+          The revised scheme uses air age as a proxy for aerosol aging and switches off
+          photolysis after about 50 days, representing the decline in photolysis as aerosols
+          undergo photobleaching. Together with my
+          <a href="no2.html">satellite-based NO₂ photolysis work</a>, this project uses
+          observations to constrain the chemical processes that control stratospheric composition.
+        </p>
       </div>
 
     </div>

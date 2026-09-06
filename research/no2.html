@@ -38,6 +38,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../research.html" class="active">Research</a></li>
         <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../uploads/resume.pdf" target="_blank" rel="noopener">CV</a></li>
       </ul>
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
@@ -57,36 +58,14 @@
       <div class="research-detail__tag" style="color:var(--indigo);background:var(--indigo-lt);">Reactive nitrogen</div>
       <h1 class="research-detail__title">Inferring stratospheric NO₂ photolysis rates from satellite observations</h1>
 
-      <img decoding="async" src="../img/no2.png" width="2067" height="2707" alt="NO₂ photolysis rate comparison" class="research-detail__hero-img figure-zoom" data-wipe="down">
-
-      <div class="research-detail__body">
+      <div class="research-detail__summary">
         <p>
-          Nitrogen dioxide (NO₂) plays a central role in stratospheric chemistry, particularly
-          in the catalytic destruction of ozone. Its photodissociation coefficient J(NO₂)
-          governs the daytime diurnal variation of NO<sub>x</sub> and depends on solar zenith
-          angle, altitude, and the local radiation environment — including surface albedo.
-          Yet direct global measurements of J(NO₂) in the stratosphere are scarce.
+          Can satellite composition measurements constrain stratospheric NO₂ photolysis
+          without directly measuring sunlight? I develop a method using MIPAS observations
+          and steady-state chemistry that agrees closely with modeled photolysis rates.
+          It also captures enhanced photolysis over polar ice and snow, providing an
+          observational test of the role of surface reflectivity in stratospheric chemistry.
         </p>
-        <p>
-          I develop a novel method to infer J(NO₂) globally from simultaneous satellite
-          measurements of NO, NO₂, O₃, and ClO from the Michelson Interferometer for Passive
-          Atmospheric Sounding (MIPAS) on ESA's Envisat. Because NO and NO₂ rapidly exchange
-          in sunlight, J(NO₂) can be derived under the steady-state assumption without direct
-          radiation measurements. I apply this to 50°S–90°S in December at 20–40 km, spanning
-          a wide range of solar zenith angles.
-        </p>
-        <p>
-          The derived J(NO₂) values are consistent with the TUV4.2 radiation model and show
-          the expected dependence on solar zenith angle and a weak altitude dependence. A key
-          finding is that J(NO₂) is elevated over the polar cap relative to lower latitudes —
-          driven by the high reflectivity of ice and snow. This albedo enhancement of
-          photolysis rates, which this satellite method captures quantitatively for the first
-          time, has implications for polar stratospheric and tropospheric photochemistry.
-        </p>
-      </div>
-
-      <div class="research-detail__tools">
-        Tools &amp; methods: MIPAS / Envisat · TUV4.2 radiation model · Steady-state NO<sub>x</sub> chemistry · Solar zenith angle &amp; albedo dependence
       </div>
 
       <div class="research-detail__pub">
@@ -94,6 +73,54 @@
         <a href="https://doi.org/10.5194/acp-23-10413-2023" target="_blank" rel="noopener">
           Guan et al. (2023), <em>ACP</em>, 23(18), 10413–10422
         </a>
+      </div>
+
+      <figure class="research-figure research-figure--preview">
+        <p class="no2-scroll-hint">Swipe or scroll sideways to compare panels. Tap a row to enlarge the full figure.</p>
+        <h2 class="no2-height">23 km <span>Original row (a)</span></h2>
+        <div class="no2-row" role="region" aria-label="23 km comparison; scroll horizontally on small screens" tabindex="0">
+          <a href="../img/no2.png" class="research-panel" data-figure-open
+             data-figure-alt="NO₂ photolysis from MIPAS and the model, and their correlation, at 23, 28, 33, and 38 km" aria-label="Enlarge the full NO₂ figure from the 23 km comparison">
+            <svg viewBox="0 0 2067 660" role="img" aria-labelledby="no2-preview-a">
+              <title id="no2-preview-a">At 23 km: MIPAS-derived NO₂ photolysis, modeled photolysis, and their correlation</title>
+              <image href="../img/no2.png" width="2067" height="2707" />
+            </svg>
+          </a>
+        </div>
+        <h2 class="no2-height">33 km <span>Original row (c)</span></h2>
+        <div class="no2-row" role="region" aria-label="33 km comparison; scroll horizontally on small screens" tabindex="0">
+          <a href="../img/no2.png" class="research-panel" data-figure-open
+             data-figure-alt="NO₂ photolysis from MIPAS and the model, and their correlation, at 23, 28, 33, and 38 km" aria-label="Enlarge the full NO₂ figure from the 33 km comparison">
+            <svg viewBox="0 1360 2067 680" role="img" aria-labelledby="no2-preview-c">
+              <title id="no2-preview-c">At 33 km: MIPAS-derived NO₂ photolysis, modeled photolysis, and their correlation</title>
+              <image href="../img/no2.png" width="2067" height="2707" />
+            </svg>
+          </a>
+        </div>
+        <figcaption>
+          At 23 and 33 km, MIPAS-derived NO₂ photolysis rates agree closely with the model;
+          each row shows satellite estimates, model results, and their correlation.
+          Blue bands show 1σ uncertainty, colors indicate latitude, and the dashed lines
+          in the correlation panels mark one-to-one agreement.
+        </figcaption>
+        <a href="../img/no2.png" class="research-figure__full" data-figure-open
+           data-figure-alt="NO₂ photolysis from MIPAS and the model, and their correlation, at 23, 28, 33, and 38 km">View full figure — all four altitudes ↗</a>
+      </figure>
+
+      <div class="research-detail__body">
+        <h2>Methods and contribution</h2>
+        <p>
+          Rapid daytime exchange between NO and NO₂ allows the photolysis rate to be inferred
+          from simultaneous MIPAS measurements of atmospheric composition. I apply the method
+          over southern high latitudes and compare the results with WACCM6 photolysis rates
+          based on TUV radiative-transfer calculations, sampled at the observation times and locations.
+        </p>
+        <p>
+          This approach connects the radiation environment to chemical rates inferred from
+          observations. Together with my <a href="soa.html">organic aerosol photolysis work</a>,
+          it provides observational constraints on the chemical processes that shape
+          stratospheric composition.
+        </p>
       </div>
 
     </div>

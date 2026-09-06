@@ -131,7 +131,9 @@
   to { stroke-dashoffset: 0; }
 }
 
-.js .hero__text > *,
+.js .hero__identity > *,
+.js .hero__bio-group > *,
+.js .hero__icons,
 .js .hero__news {
   animation: rise .85s var(--ease-rise) both;
 }
@@ -611,7 +613,9 @@
     scroll-behavior: auto !important;
   }
 
-  .js .hero__text > *,
+  .js .hero__identity > *,
+.js .hero__bio-group > *,
+.js .hero__icons,
   .js .hero__news,
   .js .hero__photo img,
   .js .hero__name .hero__name-inner { animation: none; opacity: 1; transform: none; }
@@ -621,3 +625,36 @@
   .rcard:hover, .rcard:focus-within { transform: none; }
   .limbview__sky, .limbview__horizon { transform: none; }
 }
+
+/* Visible labels replace the hover-only contact tooltips. */
+.icon-btn--labelled::after { display: none; }
+.research-figure .figure-zoom-wrap { margin-bottom: 0; }
+.research-figure__link .figure-zoom-badge { color: var(--text-2); }
+@media (max-width: 768px) {
+  .research-figure .figure-zoom-wrap { width: 100%; }
+}
+
+/* The full figure can scroll at native size, including on touch screens. */
+.lightbox {
+  width: min(1100px, calc(100vw - 2rem)); max-width: none;
+  max-height: 94svh; margin: auto; padding: 0;
+  color: var(--text); background: var(--card-bg);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.lightbox::backdrop { background: rgba(0, 0, 0, .72); }
+.lightbox__toolbar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+  padding: .65rem; border-bottom: 1px solid var(--border);
+}
+.lightbox__toolbar button, .lightbox__toolbar a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: .4rem .7rem; font: inherit; font-size: .9rem;
+  color: var(--text); background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 8px; cursor: pointer;
+}
+.lightbox__close { margin-left: auto; }
+.lightbox__viewport { max-height: 72svh; overflow: auto; overscroll-behavior: contain; }
+.lightbox img { display: block; width: 100%; max-width: none; height: auto; background: #fff; }
+.lightbox.is-native img { width: auto; }
+.lightbox__hint { padding: .5rem .8rem; font-size: .85rem; color: var(--text-2); }

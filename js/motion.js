@@ -148,36 +148,57 @@
     }, SAFETY_MS);
   }
 
-  /* ── Figures: click to enlarge ───────────────────────────────── */
+  /* ── Figures: accessible full view with native-size scrolling ── */
   (function () {
-    var figs = document.querySelectorAll('.figure-zoom');
-    if (!figs.length) return;
+    var links = document.querySelectorAll('[data-figure-open]');
+    if (!links.length) return;
 
-    var box = document.createElement('div');
+    var box = document.createElement('dialog');
+    if (!box.showModal) return; // Image links still work without dialog support.
     box.className = 'lightbox';
-    box.setAttribute('role', 'dialog');
-    box.setAttribute('aria-modal', 'true');
-    box.setAttribute('aria-label', 'Enlarged figure');
-    box.innerHTML = '<img alt=""><span class="lightbox__hint">Click anywhere or press Esc to close</span>';
+    box.setAttribute('aria-label', 'Enlarged research figure');
+    box.innerHTML = '<div class="lightbox__toolbar">' +
+      '<button type="button" class="lightbox__size" aria-pressed="false">Actual size</button>' +
+      '<a class="lightbox__original" target="_blank" rel="noopener">Open image ↗</a>' +
+      '<button type="button" class="lightbox__close" autofocus>Close</button></div>' +
+      '<div class="lightbox__viewport"><img alt=""></div>' +
+      '<p class="lightbox__hint">Scroll to explore. Choose Actual size for small labels; press Esc to close.</p>';
     document.body.appendChild(box);
     var bigImg = box.querySelector('img');
-    var lastFocus = null;
+    var sizeButton = box.querySelector('.lightbox__size');
+    var viewport = box.querySelector('.lightbox__viewport');
+    var lastFocus;
 
-    function open(src, alt) {
-      lastFocus = document.activeElement;
-      bigImg.src = src;
-      bigImg.alt = alt || '';
-      box.classList.add('is-open');
-      box.tabIndex = -1;
-      box.focus();
-    }
-    function close() {
-      box.classList.remove('is-open');
-      if (lastFocus) lastFocus.focus();
-    }
+    Array.prototype.forEach.call(links, function (link) {
+      link.addEventListener('click', function (e) {
+        if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        e.preventDefault();
+        lastFocus = link;
+        bigImg.src = link.href;
+        bigImg.alt = link.getAttribute('data-figure-alt') || '';
+        box.querySelector('.lightbox__original').href = link.href;
+        box.classList.remove('is-native');
+        sizeButton.textContent = 'Actual size';
+        sizeButton.setAttribute('aria-pressed', 'false');
+        box.showModal();
+        viewport.scrollTo(0, 0);
+      });
+    });
+    sizeButton.addEventListener('click', function () {
+      var native = box.classList.toggle('is-native');
+      sizeButton.textContent = native ? 'Fit width' : 'Actual size';
+      sizeButton.setAttribute('aria-pressed', String(native));
+    });
+    box.querySelector('.lightbox__close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (e) {
+      if (e.target !== box) return;
+      var bounds = box.getBoundingClientRect();
+      if (e.clientX < bounds.left || e.clientX > bounds.right ||
+          e.clientY < bounds.top || e.clientY > bounds.bottom) box.close();
+    });
+    box.addEventListener('close', function () { if (lastFocus) lastFocus.focus(); });
 
-    Array.prototype.forEach.call(figs, function (f) {
-      /* Wrap at runtime so the badge affordance costs nothing in the markup. */
+    Array.prototype.forEach.call(document.querySelectorAll('.figure-zoom'), function (f) {
       var wrap = document.createElement('span');
       wrap.className = 'figure-zoom-wrap';
       f.parentNode.insertBefore(wrap, f);
@@ -187,21 +208,7 @@
       badge.setAttribute('aria-hidden', 'true');
       badge.textContent = 'Enlarge';
       wrap.appendChild(badge);
-
       setUpWipe(wrap, f);
-
-      f.addEventListener('click', function () { open(f.currentSrc || f.src, f.alt); });
-      f.setAttribute('tabindex', '0');
-      f.setAttribute('role', 'button');
-      f.setAttribute('aria-label', 'Enlarge figure');
-      f.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(f.currentSrc || f.src, f.alt); }
-      });
-    });
-
-    box.addEventListener('click', close);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && box.classList.contains('is-open')) close();
     });
   })();
 

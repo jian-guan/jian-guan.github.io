@@ -38,6 +38,7 @@
         <li><a href="../index.html">Home</a></li>
         <li><a href="../research.html" class="active">Research</a></li>
         <li><a href="../publications.html">Publications</a></li>
+        <li><a href="../uploads/resume.pdf" target="_blank" rel="noopener">CV</a></li>
       </ul>
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
@@ -60,30 +61,48 @@
       </div>
       <h1 class="research-detail__title">The emergence of human influence on the ozone layer by the 1960s</h1>
 
-      <img decoding="async" src="../img/ozone.png" width="1078" height="714" alt="Ozone anomaly time series" class="research-detail__hero-img figure-zoom" data-wipe="right">
+      <div class="research-detail__summary">
+        <p>
+          When could human-caused ozone depletion first have been detected with modern
+          observing capabilities? I use chemistry–climate model ensembles and statistical
+          fingerprinting to show that the signal could have emerged in the tropical upper
+          stratosphere by the late 1950s, where natural variability is especially low.
+        </p>
+      </div>
+
+      <div class="research-detail__pub">
+        <strong>Publication:</strong>
+        <a href="https://doi.org/10.1073/pnas.2608286123" target="_blank" rel="noopener">
+          Guan et al. (2026), <em>PNAS</em>, 123(28), e2608286123
+        </a>
+      </div>
+
+      <figure class="research-figure">
+        <a href="../img/ozone.png" class="research-figure__link" data-figure-open
+           data-figure-alt="Modeled ozone evolution at three stratospheric levels, with ensemble members, ensemble means, and MLS observations" aria-label="Enlarge research figure">
+          <img decoding="async" src="../img/ozone.png" width="1078" height="714" alt="Modeled ozone evolution at three stratospheric levels, with ensemble members, ensemble means, and MLS observations" class="research-detail__hero-img figure-zoom" data-wipe="right">
+        </a>
+        <figcaption>
+          Ozone evolution in the upper, middle, and lower stratosphere: gray lines show model
+          realizations, black lines the ensemble mean, and blue the MLS observations.
+          The upper stratosphere has a clearer depletion signal against a quieter background;
+          orange lines mark volcanic eruptions.
+        </figcaption>
+      </figure>
 
       <div class="research-detail__body">
+        <h2>Methods and contribution</h2>
         <p>
-          The Antarctic ozone hole was first reported in 1985, and small ozone losses at the global
-          scale were also observed in the late 1980s. But when could the earliest human-caused ozone
-          depletion have been detected — if modern observing capabilities had existed from the start?
-          This project addresses that question through a "thought experiment."
+          I characterize internal variability using CESM-WACCM6 and CCMI-2022 ensembles,
+          then apply local signal-to-noise analysis and pattern-based fingerprinting to
+          identify when the anthropogenic signal emerges. This is a model-based thought
+          experiment about detectability, rather than a claim of observations in the 1950s.
         </p>
         <p>
-          Using a 16-member large initial-condition ensemble of CESM-WACCM6 together with 19
-          realizations from the Chemistry–Climate Model Initiative (CCMI-2022), I characterise the
-          full distribution of internal variability in stratospheric ozone. I then apply signal-to-noise
-          (S/N) analyses — both local and pattern-based fingerprint methods — to determine when and
-          where the forced anthropogenic depletion signal first emerges above that variability.
-        </p>
-        <p>
-          The key finding is that ozone depletion in the upper stratosphere was likely identifiable
-          as early as 1957 — about 30 years before the discovery of the Antarctic ozone hole and
-          20 years before the Molina–Rowland theory. This early depletion was driven primarily by
-          CCl₄ (carbon tetrachloride), used as a solvent decades before CFCs became common in
-          refrigeration and spray cans. Crucially, the earliest emergence does not occur where ozone
-          trends are strongest, but where internal variability is lowest — the tropical upper
-          stratosphere — highlighting the key role of noise, not just signal, in detection studies.
+          The early depletion is driven primarily by carbon tetrachloride (CCl<sub>4</sub>).
+          The earliest detection occurs where variability is lowest, rather than where
+          the ozone trend is strongest. This links the drivers of composition change
+          to where their effects can first be distinguished from natural variability.
         </p>
       </div>
 
@@ -125,17 +144,6 @@
           leaving a ±2σ band. The published analysis uses the CESM-WACCM6 large ensemble and
           the CCMI-2022 archive — see Guan et al. (2026).
         </p>
-      </div>
-
-      <div class="research-detail__tools">
-        Tools &amp; methods: CESM-WACCM6 large ensemble · CCMI-2022 multi-model archive · Signal-to-noise analysis · Pattern-based fingerprinting · MLS ozone observations
-      </div>
-
-      <div class="research-detail__pub">
-        <strong>Publication:</strong>
-        <a href="https://doi.org/10.1073/pnas.2608286123" target="_blank" rel="noopener">
-          Guan et al. (2026), <em>PNAS</em>, 123(28), e2608286123
-        </a>
       </div>
 
       <div class="research-detail__pub">

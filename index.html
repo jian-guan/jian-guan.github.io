@@ -47,6 +47,7 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="research.html">Research</a></li>
         <li><a href="publications.html">Publications</a></li>
+        <li><a href="uploads/resume.pdf" target="_blank" rel="noopener">CV</a></li>
       </ul>
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75 9.75 9.75 0 0 1 8.25 6c0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25 9.75 9.75 0 0 0 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"/></svg>
@@ -62,41 +63,42 @@
     <div class="hero__row">
 
       <div class="hero__text">
-        <span class="hero__greeting">Hello, I'm</span>
-        <h1 class="hero__name"><span class="hero__name-inner">Jian Guan</span></h1>
-        <p class="hero__tagline">
-          <strong>Ph.D. Candidate</strong>
-          <span style="color:var(--text-3)">·</span>
-          <a href="https://eapsweb.mit.edu/" target="_blank" rel="noopener">MIT EAPS</a>
-        </p>
-        <p class="hero__bio">
-          I'm a Ph.D. candidate in the
-          <a href="https://eapsweb.mit.edu/" target="_blank" rel="noopener">Department of Earth, Atmospheric, and Planetary Sciences</a>
-          at MIT, advised by
-          <a href="https://www.ssolomongroup.mit.edu/susansolomon" target="_blank" rel="noopener">Prof.&nbsp;Susan Solomon</a>.
-          My research focuses on stratospheric chemistry and its interactions with climate:
-          how human activities have altered the ozone layer, how stratospheric composition
-          shapes radiative forcing, and how events such as wildfires and volcanic eruptions
-          perturb atmospheric chemistry.
-        </p>
-        <p class="hero__bio">
-          I combine satellite observations, chemistry-climate model simulations
-          (CESM-WACCM6, CCMI), airborne campaign measurements, and statistical detection
-          and attribution methods. Current projects include quantifying early human
-          influence on the ozone layer, estimating stratospheric water vapor forcing from
-          methane oxidation, and improving how models represent organic aerosols in the
-          stratosphere.
-        </p>
+        <div class="hero__identity">
+          <span class="hero__greeting">Hello, I'm</span>
+          <h1 class="hero__name"><span class="hero__name-inner">Jian Guan</span></h1>
+          <p class="hero__tagline">
+            <strong>Ph.D. Candidate</strong>
+            <span style="color:var(--text-3)">·</span>
+            <a href="https://eapsweb.mit.edu/" target="_blank" rel="noopener">MIT EAPS</a>
+          </p>
+        </div>
+        <div class="hero__bio-group">
+          <p class="hero__bio">
+            I study what drives changes in stratospheric composition, the chemical processes
+            behind them, and how they affect climate. My work spans detecting human influence
+            on the ozone layer, constraining organic aerosol photolysis, and quantifying
+            warming from methane-derived stratospheric water vapor.
+          </p>
+          <p class="hero__bio">
+            At MIT, I work with
+            <a href="https://www.ssolomongroup.mit.edu/susansolomon" target="_blank" rel="noopener">Prof.&nbsp;Susan Solomon</a>,
+            combining satellite and aircraft observations with chemistry–climate models
+            and statistical detection and attribution to test mechanisms and improve
+            model representations.
+          </p>
+        </div>
 
         <div class="hero__icons">
-          <a href="mailto:jianguan@mit.edu" class="icon-btn" data-label="Email" aria-label="Email" title="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+          <a href="mailto:jianguan@mit.edu" class="icon-btn icon-btn--labelled" data-label="Email" aria-label="Email" title="Email">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+            <span>Email</span>
           </a>
-          <a href="https://scholar.google.com/citations?user=-932pXIAAAAJ&hl=en" target="_blank" rel="noopener" class="icon-btn" data-label="Google Scholar" aria-label="Google Scholar" title="Google Scholar">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269ZM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"/></svg>
+          <a href="https://scholar.google.com/citations?user=-932pXIAAAAJ&hl=en" target="_blank" rel="noopener" class="icon-btn icon-btn--labelled" data-label="Google Scholar" aria-label="Google Scholar" title="Google Scholar">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269ZM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"/></svg>
+            <span>Google Scholar</span>
           </a>
-          <a href="uploads/resume.pdf" target="_blank" rel="noopener" class="icon-btn icon-btn--cv" data-label="Curriculum Vitae" aria-label="CV" title="Download CV">
-            <svg viewBox="0 0 512 512" fill="currentColor"><path d="M249.18 328.324c-9.788 15.384-19.179 30.434-40.222 45.055-11.256 7.89-37.164 23.306-73.99 23.306C64.709 396.685 8 345.605 8 255.801c0-78.486 53.345-140.486 128.466-140.486 30.434 0 57.474 10.521 77.387 26.304 18.414 14.65 27.038 29.304 34.563 42.456l-52.58 26.273c-3.762-8.626-8.29-17.649-19.913-27.406-12.784-10.155-25.54-13.152-36.46-13.152-42.821 0-65.364 39.825-65.364 84.145 0 58.238 29.7 87.143 65.364 87.143 34.563 0 48.48-24.042 57.474-39.426l52.243 26.673zm184.194-204.75H504l-92.037 265.22h-67.597l-90.904-265.22h70.625l54.843 188.6z"/></svg>
+          <a href="uploads/resume.pdf" target="_blank" rel="noopener" class="icon-btn icon-btn--labelled icon-btn--cv" data-label="Curriculum Vitae" aria-label="CV" title="Download CV">
+            <span>CV</span>
           </a>
         </div>
       </div>
